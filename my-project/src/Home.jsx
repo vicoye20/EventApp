@@ -84,6 +84,9 @@ const Home = () => {
   const filteredEvents = allEvents.filter((event) =>
     event.eventName.toLowerCase().includes(searchQuery.toLowerCase())
   );
+  const filterEvents = disEvent.filter((event) =>
+    event.eventName.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   if (loading)
     return (
@@ -241,7 +244,7 @@ const Home = () => {
               spaceBetween={5}
             >
       <div className="flex gap-3 -mt-2">
-        {disEvent.map((disEvent) => (
+        {filterEvents.map((disEvent) => (
           <SwiperSlide>
           <div key={disEvent._id}>
             <div className="flex flex-row w-full h-28 mt-4">
