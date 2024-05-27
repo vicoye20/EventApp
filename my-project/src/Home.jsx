@@ -188,9 +188,14 @@ const Home = () => {
         </Link>
       </div>
 
+
+ <Swiper
+              slidesPerView={2.5}
+              spaceBetween={5}
+            >
       <div className="flex gap-3 -mt-2">
-        
         {filteredEvents.map((allEvents) => (
+          <SwiperSlide>
           <div key={allEvents._id}>
             <div className="flex flex-row w-full h-28 mt-4">
               <img
@@ -215,8 +220,10 @@ const Home = () => {
               {allEvents.location}
             </p>
           </div>
+          </SwiperSlide>
         ))}
       </div>
+      </Swiper>
 
       <div className="flex flex-row justify-between w-full items-center mt-6">
         <h1 className="text-[20px] font-semibold text-slate-800">
