@@ -264,7 +264,7 @@ const Home = () => {
       </div>
       </Swiper>
 
-      <footer className="bg-slate-900 w-screen h-16 p-8 fixed left-0 bottom-0 flex flex-row justify-between items-center">
+      <footer className="bg-slate-900 w-screen h-16 p-8 fixed left-0 bottom-0 flex flex-row justify-between items-center z-10">
         <Link to="/">
           <button className="text-center text-white text-[12px]">
             <IoMdHome className="h-6 w-6 m-auto" />
