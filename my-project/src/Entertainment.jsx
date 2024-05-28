@@ -9,6 +9,9 @@ const Entertainment = () => {
 const [dj, setDj] = useState([]);
 const [comedy, setComedy] = useState([]);
 const [dancer, setDancer] = useState([]);
+const [music, setMusic] = useState([]);
+const [sound, setSound] = useState([]);
+const [mc, setMc] = useState([]);
 const [loading, setLoading] = useState(true);
 const [error, setError] = useState(null);
 
@@ -46,11 +49,46 @@ useEffect(() => {
     }
   };
   dance();
+
+  const musics = async () => {
+    try {
+      const res = await axios.get("http://localhost:3000/musics");
+      setMusic(res.data);
+    } catch (err) {
+      setError(err);
+      setLoading(false);
+    }
+  } ;
+  musics();
+
+  const sounds = async () => {
+    try {
+      const res = await axios.get("http://localhost:3000/sounds");
+      setSound(res.data);
+    } catch (err) {
+      setError(err);
+      setLoading(false);
+    }
+  } ;
+  sounds();
+
+  const mcs = async () => {
+    try {
+      const res = await axios.get("http://localhost:3000/mcs");
+      setMc(res.data);
+    } catch (err) {
+      setError(err);
+      setLoading(false);
+    }
+  } ;
+  mcs();
 }, [])
 
   
   return (
     <div className='p-7 w-screen h-full mb-12'>
+
+    <div className="fixed top-0 left-0 w-screen bg-white p-6">
 
       <div className="flex flex-row items-center text-slate-700">
         <Link to="/service">
@@ -82,32 +120,53 @@ useEffect(() => {
         <button>Sound</button>
       </div>
 
-      <div className="grid grid-cols-2 text-center gap-10 mt-4">
+    </div>  
+
+      <div className="grid grid-cols-2 text-center gap-2 mt-36 w-full mx-auto justify-center items-center">
+
         {dj.map((dj) => (
             <div key={dj._id}>
               <img src={dj.picture} alt="" className="h-40 w-44 rounded-2xl"/>
               <p className="font-semibold text-[15px] text-slate-800">{dj.name}</p>
             </div>
-          ))
-        }
+          ))}
+
         {comedy.map((comedy) => (
           <div key={comedy._id}>
             <img src={comedy.picture} alt="" className="h-40 w-44 rounded-2xl"/>
-            <p className="font-semibold text-[15px] text-slate-800">{comedy.name}</p>
+            <p className="font-semibold text-[15px] text-slate-800 text-center">{comedy.name}</p>
           </div>
-        ))
-        }
+        ))}
+
         {dancer.map((dancer) => (
           <div key={dancer._id}>
             <img src={dancer.picture} alt="" className="h-40 w-44 rounded-2xl"/>
-            <p className="font-semibold text-[15px] text-slate-800">{dancer.name}</p>
+            <p className="font-semibold text-[15px] 
+            text-slate-800">{dancer.name}</p>
+          </div>
+        ))}
+
+        {music.map((music) => (
+          <div key={music._id}>
+            <img src={music.picture} alt="" className="h-40 w-44 rounded-2xl"/>
+            <p className="font-semibold text-[15px] text-slate-800">{music.name}</p>
+          </div>
+        ))}
+
+        {sound.map((sound) => (
+          <div key={sound._id}>
+            <img src={sound.picture} alt="" className="h-40 w-44 rounded-2xl"/>
+            <p className="font-semibold text-[15px] text-slate-800">{sound.name}</p>
+          </div>
+        ))}
+
+        {mc.map((mc) => (
+          <div key={mc._id}>
+            <img src={mc.picture} alt="" className="h-40 w-44 rounded-2xl"/>
+            <p className="font-semibold text-[15px] text-slate-800">{mc.name}</p>
           </div>
         ))}
       </div>
-
-      
-
-
 
     </div>
   );

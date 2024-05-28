@@ -12,6 +12,7 @@ import GrayTwo from './GrayTwo';
 import GrayThree from './GrayThree';
 import Music from './Music';
 import Djs from './Djs';
+import Mcs from './Mcs';
 import Comedy from './Comedy';
 import Dancer from './Dancer';
 import Sound from './Sound';
@@ -44,6 +45,7 @@ const App = () => {
                   <Route path='/comedian' element={<Comedy/>}/>
                   <Route path='/dancer' element={<Dancer/>}/>
                   <Route path='/sound' element={<Sound/>}/>
+                  <Route path='/mcs' element={<Mcs/>}/>
 
                   <Route path='/upcoming' element={<Upcoming/>}/>
                   <Route path='/coming' element={<Coming/>}/>

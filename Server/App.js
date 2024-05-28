@@ -7,7 +7,7 @@ const Event3Model = require("./Models/Event3Model")
 const ComedianModel = require("./Models/ComedianModel")
 const MusicModel = require("./Models/MusicModel")
 const UserModel = require("./Models/UserModel")
-const VenueModel = require("./Models/VenueModel")
+const McsModel = require("./Models/McsModel")
 const DiscModel = require("./Models/DiscModel")
 const DancerModel = require("./Models/DancerModel")
 const SoundModel = require("./Models/SoundModel")
@@ -124,6 +124,19 @@ App.post("/music",async(req,res)=>{
     }
 })
 
+// get data from music
+
+App.get("/musics",async(req,res)=>{
+    console.log("posted")
+    try {
+        const music = await MusicModel.find(req.body)
+        res.status(200).json(music)
+    }
+     catch (error) {
+        res.status(500).json({error:error.message})
+    }
+})
+
 // post djs task
 
 App.post("/disc",async(req,res)=>{
@@ -210,6 +223,45 @@ App.post("/sound", async (req,res) => {
     try {
         const sound = await SoundModel.create(req.body)
         res.status(200).json(sound)
+    }
+     catch (error) {
+        res.status(500).json({error:error.message})
+    }
+})
+
+// get data from sound
+
+App.get("/sounds",async(req,res)=>{
+    console.log("posted")
+    try {
+        const sounds = await SoundModel.find(req.body)
+        res.status(200).json(sounds)
+    }
+     catch (error) {
+        res.status(500).json({error:error.message})
+    }
+})
+
+// post mcs task
+
+App.post("/mc", async (req,res) => {
+    console.log("posted")
+    try {
+        const mc = await McsModel.create(req.body)
+        res.status(200).json(mc)
+    }
+     catch (error) {
+        res.status(500).json({error:error.message})
+    }
+})
+
+// get data from mcs
+
+App.get("/mcs",async(req,res)=>{
+    console.log("posted")
+    try {
+        const mcs = await McsModel.find(req.body)
+        res.status(200).json(mcs)
     }
      catch (error) {
         res.status(500).json({error:error.message})
