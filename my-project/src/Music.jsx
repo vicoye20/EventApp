@@ -40,19 +40,24 @@ const Music = () => {
       </h1>
 
       <div className="w-full flex flex-row items-center justify-evenly mt-8">
-        <Link to="/gray">
+      <Link to="/comedian">
           <button className="h-8 w-20 bg-blue-700 text-white font-semibold rounded-2xl">
-            Admin 1
+            Comedian
           </button>
         </Link>
-        <Link to="/grayTwo">
+        <Link to="/dancer">
           <button className="h-8 w-20 bg-blue-700 text-white font-semibold rounded-2xl">
-            Admin 2
+            Dancer
           </button>
         </Link>
         <Link to="/music">
           <button className="h-8 w-20 bg-blue-700 text-white font-semibold rounded-2xl">
             Music A.
+          </button>
+          </Link>
+          <Link to="/djs">
+          <button className="h-8 w-20 bg-blue-700 text-white font-semibold rounded-2xl">
+            DJ's Admin
           </button>
         </Link>
       </div>

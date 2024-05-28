@@ -136,6 +136,32 @@ App.post("/disc",async(req,res)=>{
     }
 })
 
+// post dancers task
+
+App.post("/dancer",async(req,res)=>{
+    console.log("posted")
+    try {
+        const dancer = await DancerModel.create(req.body)
+        res.status(200).json(dancer)
+    }
+     catch (error) {
+        res.status(500).json({error:error.message})
+    }
+})
+
+// post comedian tasks
+
+App.post("/comedian",async(req,res)=>{
+    console.log("posted")
+    try {
+        const comedian = await ComedianModel.create(req.body)
+        res.status(200).json(comedian)
+    }
+     catch (error) {
+        res.status(500).json({error:error.message})
+    }
+})
+
 // connect to mongoDB
 
 mongoose.connect(process.env.MONGO_URI).then(()=>{

@@ -61,16 +61,12 @@ const GrayTwo = () => {
             Admin 2
           </button>
         </Link>
-        <Link to="/music">
+        <Link to="/grayThree">
           <button className="h-8 w-20 bg-blue-700 text-white font-semibold rounded-2xl">
-            Music A.
+            Admin 3
           </button>
         </Link>
-        <Link to="/djs">
-          <button className="h-8 w-20 bg-blue-700 text-white font-semibold rounded-2xl">
-            DJ's Admin
-          </button>
-        </Link>
+        
       </div>
 
       <div className="text-center items-center justify-center mt-4">

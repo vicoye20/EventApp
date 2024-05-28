@@ -2,9 +2,12 @@ import { React, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const Djs = () => {
-  const [form, setForm] = useState({
-    djsName: "",
+
+
+const Dancer = () => {
+ 
+    const [form, setForm] = useState({
+    dancerName: "",
     picture: "",
     description: "",
     amount: "",
@@ -18,7 +21,7 @@ const Djs = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3000/disc", form)
+      .post("http://localhost:3000/dancer", form)
       .then((res) => {
         console.log(res);
       })
@@ -26,7 +29,7 @@ const Djs = () => {
         console.log(err);
       });
     setForm({
-      djsName: "",
+      dancerName: "",
       picture: "",
       description: "",
       amount: "",
@@ -36,16 +39,16 @@ const Djs = () => {
   return (
     <div className="p-10 bg-teal-900 h-screen">
       <h1 className="text-center text-2xl text-white font-semibold underline decoration-4">
-        DJ's A. To DataBase
+        Dancer A. To DataBase
       </h1>
 
       <div className="w-full flex flex-row items-center justify-evenly mt-8">
-        <Link to="/gray">
+      <Link to="/comedian">
           <button className="h-8 w-20 bg-blue-700 text-white font-semibold rounded-2xl">
             Comedian
           </button>
         </Link>
-        <Link to="/grayTwo">
+        <Link to="/dancer">
           <button className="h-8 w-20 bg-blue-700 text-white font-semibold rounded-2xl">
             Dancer
           </button>
@@ -60,17 +63,16 @@ const Djs = () => {
             DJ's Admin
           </button>
         </Link>
-        
       </div>
 
       <div className="text-center items-center justify-center mt-8">
         <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
           <input
             type="text"
-            placeholder="DJ's Name"
+            placeholder="Dancer Name"
             onChange={handleChange}
-            name="djsName"
-            value={form.djsName}
+            name="musicName"
+            value={form.dancerName}
             className="border-2 border-slate-400 rounded-2xl pl-10 p-2 w-full placeholder:text-lg placeholder:text-black focus:outline-none"
           />
 
@@ -108,4 +110,4 @@ const Djs = () => {
   );
 };
 
-export default Djs;
+export default Dancer

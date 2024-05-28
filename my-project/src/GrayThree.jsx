@@ -45,9 +45,9 @@ const GrayThree = () => {
   };
 
   return (
-    <div className="p-10 bg-green-950">
+    <div className="p-10 bg-red-950">
       <h1 className="text-center text-2xl text-white font-semibold underline decoration-4">
-        Admin.1 Posting To DataBase
+        Admin.3 Posting To DataBase
       </h1>
 
       <div className="w-full flex flex-row items-center justify-evenly mt-8">
@@ -61,16 +61,12 @@ const GrayThree = () => {
             Admin 2
           </button>
         </Link>
-        <Link to="/music">
+        <Link to="/grayThree">
           <button className="h-8 w-20 bg-blue-700 text-white font-semibold rounded-2xl">
-            Music A.
+            Admin 3
           </button>
         </Link>
-        <Link to="/djs">
-          <button className="h-8 w-20 bg-blue-700 text-white font-semibold rounded-2xl">
-            DJ's Admin
-          </button>
-        </Link>
+       
       </div>
 
       <div className="text-center items-center justify-center mt-4">

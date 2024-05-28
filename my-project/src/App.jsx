@@ -12,6 +12,8 @@ import GrayTwo from './GrayTwo';
 import GrayThree from './GrayThree';
 import Music from './Music';
 import Djs from './Djs';
+import Comedian from './Comedian';
+import Dancer from './Dancer';
 import Upcoming from './Upcoming';
 import Coming from './Coming';
 import Details from './Details';
@@ -35,6 +37,8 @@ const App = () => {
                   <Route path='/grayThree' element={<GrayThree/>}/>
                   <Route path='/music' element={<Music/>}/>
                   <Route path='/djs' element={<Djs/>}/>
+                  <Route path='/comedian' element={<Comedian/>}/>
+                  <Route path='/dancer' element={<Dancer/>}/>
                   <Route path='/upcoming' element={<Upcoming/>}/>
                   <Route path='/coming' element={<Coming/>}/>
                   <Route path='/details/:id' element={<Details/>}/>

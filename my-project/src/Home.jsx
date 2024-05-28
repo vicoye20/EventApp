@@ -194,15 +194,15 @@ const Home = () => {
 
  <Swiper
               slidesPerView={2.5}
-              spaceBetween={5}
+              spaceBetween={10}
             >
       <div className="flex gap-3 -mt-2">
         {filteredEvents.map((allEvents) => (
           <SwiperSlide>
           <div key={allEvents._id}>
-            <div className="flex flex-row w-full h-28 mt-4">
+            <div className="flex flex-row w-full h-32 mt-4">
               <img
-                className="flex flex-row h-28 w-32 rounded-lg"
+                className="flex flex-row h-32 w-40 rounded-lg"
                 src={allEvents.picture}
                 alt=""
               />
@@ -241,15 +241,15 @@ const Home = () => {
 
       <Swiper
               slidesPerView={2.5}
-              spaceBetween={5}
+              spaceBetween={10}
             >
       <div className="flex gap-3 -mt-2">
         {filterEvents.map((disEvent) => (
           <SwiperSlide>
           <div key={disEvent._id}>
-            <div className="flex flex-row w-full h-28 mt-4">
+            <div className="flex flex-row w-full h-32 mt-4">
               <img
-                className="flex flex-row h-28 w-32 rounded-lg"
+                className="flex flex-row h-32 w-40 rounded-lg"
                 src={disEvent.picture}
                 alt=""
               />
