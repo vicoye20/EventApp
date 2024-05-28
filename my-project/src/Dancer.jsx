@@ -1,5 +1,5 @@
-import { React, useState } from "react";
 import axios from "axios";
+import { React, useState } from "react";
 import { Link } from "react-router-dom";
 
 
@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const Dancer = () => {
  
     const [form, setForm] = useState({
-    dancerName: "",
+    name: "",
     picture: "",
     description: "",
     amount: "",
@@ -42,24 +42,29 @@ const Dancer = () => {
         Dancer A. To DataBase
       </h1>
 
-      <div className="w-full flex flex-row items-center justify-evenly mt-8">
+      <div className="w-full gap-2 flex flex-row items-center justify-evenly mt-8">
       <Link to="/comedian">
-          <button className="h-8 w-20 bg-blue-700 text-white font-semibold rounded-2xl">
+          <button className="h-8 w-24 bg-blue-700 text-white font-semibold rounded-2xl">
             Comedian
           </button>
         </Link>
+        <Link to="/sound">
+          <button className="h-8 w-24 bg-blue-700 text-white font-semibold rounded-2xl">
+            Sound
+          </button>
+        </Link>
         <Link to="/dancer">
-          <button className="h-8 w-20 bg-blue-700 text-white font-semibold rounded-2xl">
+          <button className="h-8 w-24 bg-blue-700 text-white font-semibold rounded-2xl">
             Dancer
           </button>
         </Link>
         <Link to="/music">
-          <button className="h-8 w-20 bg-blue-700 text-white font-semibold rounded-2xl">
+          <button className="h-8 w-24 bg-blue-700 text-white font-semibold rounded-2xl">
             Music A.
           </button>
           </Link>
           <Link to="/djs">
-          <button className="h-8 w-20 bg-blue-700 text-white font-semibold rounded-2xl">
+          <button className="h-8 w-24 bg-blue-700 text-white font-semibold rounded-2xl">
             DJ's Admin
           </button>
         </Link>
@@ -71,8 +76,8 @@ const Dancer = () => {
             type="text"
             placeholder="Dancer Name"
             onChange={handleChange}
-            name="musicName"
-            value={form.dancerName}
+            name="name"
+            value={form.name}
             className="border-2 border-slate-400 rounded-2xl pl-10 p-2 w-full placeholder:text-lg placeholder:text-black focus:outline-none"
           />
 

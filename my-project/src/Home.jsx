@@ -81,6 +81,10 @@ const Home = () => {
     setSearchQuery(e.target.value);
   };
 
+  const filteredEvent = event.filter((event) =>
+    event.eventName.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   const filteredEvents = allEvents.filter((event) =>
     event.eventName.toLowerCase().includes(searchQuery.toLowerCase())
   );
@@ -126,7 +130,7 @@ const Home = () => {
       </h1>
 
       <div>
-        {event.map((event) => (
+        {filteredEvent.map((event) => (
           <div key={event._id}>
             <div className="mt-3">
               <img

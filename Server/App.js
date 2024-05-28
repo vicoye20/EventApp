@@ -10,6 +10,7 @@ const UserModel = require("./Models/UserModel")
 const VenueModel = require("./Models/VenueModel")
 const DiscModel = require("./Models/DiscModel")
 const DancerModel = require("./Models/DancerModel")
+const SoundModel = require("./Models/SoundModel")
 const cors = require("cors")
 
 const App = express();
@@ -136,9 +137,22 @@ App.post("/disc",async(req,res)=>{
     }
 })
 
+// to get data from djs
+
+App.get("/discs",async(req,res)=>{
+    console.log("posted")
+    try {
+        const discs = await DiscModel.find(req.body)
+        res.status(200).json(discs)
+    }
+     catch (error) {
+        res.status(500).json({error:error.message})
+    }
+})
+
 // post dancers task
 
-App.post("/dancer",async(req,res)=>{
+App.post("/dancer", async (req,res) => {
     console.log("posted")
     try {
         const dancer = await DancerModel.create(req.body)
@@ -149,13 +163,53 @@ App.post("/dancer",async(req,res)=>{
     }
 })
 
+// get data from dancers
+
+App.get("/dancers",async (req,res) => {
+    console.log("posted")
+    try{
+        const dancers = await DancerModel.find(req.body)
+        res.status(200).json(dancers)
+    }
+     catch (error) {
+        res.status(500).json({error:error.message})
+    }
+})
+
 // post comedian tasks
 
-App.post("/comedian",async(req,res)=>{
+App.post("/comedy", async (req,res) => {
     console.log("posted")
     try {
-        const comedian = await ComedianModel.create(req.body)
-        res.status(200).json(comedian)
+        const comedy = await ComedianModel.create(req.body)
+        res.status(200).json(comedy)
+    }
+     catch (error) {
+        res.status(500).json({error:error.message})
+    }
+})
+
+// get data from comedian
+
+App.get("/comedians",async(req,res)=>{
+    console.log("posted")
+    try {
+        const comedians = await ComedianModel.find(req.body)
+        res.status(200).json(comedians)
+    }
+     catch (error) {
+        res.status(500).json({error:error.message})
+    }
+})
+
+
+// sound post task
+
+App.post("/sound", async (req,res) => {
+    console.log("posted")
+    try {
+        const sound = await SoundModel.create(req.body)
+        res.status(200).json(sound)
     }
      catch (error) {
         res.status(500).json({error:error.message})

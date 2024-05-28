@@ -39,7 +39,7 @@ const Profile = () => {
           </button>
         </div>
 
-        <div className="flex flex-row justify-between items-center w-full p-6 -mt-8">
+        {/* <div className="flex flex-row justify-between items-center w-full p-6 -mt-8">
           <div className="flex items-center">
             <button className="h-8 w-8 bg-red-200 rounded-md">
               <FaLocationDot className="m-auto text-red-600" />
@@ -50,7 +50,7 @@ const Profile = () => {
           <button>
             <PiGreaterThan />
           </button>
-        </div>
+        </div> */}
 
         <div className="flex flex-row justify-between items-center w-full p-6 -mt-8">
           <div className="flex items-center">

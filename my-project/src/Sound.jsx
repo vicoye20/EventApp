@@ -1,13 +1,14 @@
 import { React, useState } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
-const Comedian = () => {
+
+const Sound = () => {
   const [form, setForm] = useState({
-    comedianName: "",
-    picture: "",
-    description: "",
-    amount: "",
+    name : "",
+    picture : "",
+    description : "",
+    amount : "",
   });
 
   const handleChange = (e) => {
@@ -18,19 +19,19 @@ const Comedian = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3000/comedian", form)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    setForm({
-      comedianName: "",
-      picture: "",
-      description: "",
-      amount: "",
+    .post("http://localhost:3000/sound", form)
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log(err);
     });
+    setForm({
+        name : "",
+        picture : "",
+        description : "",
+        amount : "",
+    })
   };
 
   return (
@@ -39,25 +40,30 @@ const Comedian = () => {
         Comedian A. To DataBase
       </h1>
 
-      <div className="w-full flex flex-row items-center justify-evenly mt-8">
+      <div className="w-full gap-2 flex flex-row items-center justify-evenly mt-8">
         <Link to="/comedian">
-          <button className="h-8 w-20 bg-blue-700 text-white font-semibold rounded-2xl">
+          <button className="h-8 w-24 bg-blue-700 text-white font-semibold rounded-2xl">
             Comedian
           </button>
         </Link>
         <Link to="/dancer">
-          <button className="h-8 w-20 bg-blue-700 text-white font-semibold rounded-2xl">
+          <button className="h-8 w-24 bg-blue-700 text-white font-semibold rounded-2xl">
             Dancer
           </button>
         </Link>
         <Link to="/music">
-          <button className="h-8 w-20 bg-blue-700 text-white font-semibold rounded-2xl">
+          <button className="h-8 w-24 bg-blue-700 text-white font-semibold rounded-2xl">
             Music A.
           </button>
         </Link>
         <Link to="/djs">
-          <button className="h-8 w-20 bg-blue-700 text-white font-semibold rounded-2xl">
+          <button className="h-8 w-24 bg-blue-700 text-white font-semibold rounded-2xl">
             DJ's Admin
+          </button>
+        </Link>
+        <Link to="/sound">
+          <button className="h-8 w-24 bg-blue-700 text-white font-semibold rounded-2xl">
+            Sound
           </button>
         </Link>
       </div>
@@ -66,10 +72,10 @@ const Comedian = () => {
         <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
           <input
             type="text"
-            placeholder="Comedian Name"
+            placeholder="Sound Name"
             onChange={handleChange}
-            name="musicName"
-            value={form.dancerName}
+            name="name"
+            value={form.name}
             className="border-2 border-slate-400 rounded-2xl pl-10 p-2 w-full placeholder:text-lg placeholder:text-black focus:outline-none"
           />
 
@@ -107,4 +113,4 @@ const Comedian = () => {
   );
 };
 
-export default Comedian;
+export default Sound;

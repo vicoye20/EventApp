@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const musicSchema = mongoose.Schema ({
+const soundSchema = mongoose.Schema ({
     name : {
         type : String,
         required : [true,"Please enter your name"]
@@ -19,5 +19,5 @@ const musicSchema = mongoose.Schema ({
     }
 }, {timeStamp : true})
 
-const MusicModel = mongoose.model ("MusicModel",musicSchema)
-module.exports = MusicModel;
+const SoundModel = mongoose.model ("SoundModel",soundSchema)
+module.exports = SoundModel;

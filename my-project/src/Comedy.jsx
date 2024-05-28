@@ -1,13 +1,14 @@
 import { React, useState } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
-const Djs = () => {
+
+const Comedy = () => {
   const [form, setForm] = useState({
-    name: "",
-    picture: "",
-    description: "",
-    amount: "",
+    name : "",
+    picture : "",
+    description : "",
+    amount : "",
   });
 
   const handleChange = (e) => {
@@ -18,25 +19,25 @@ const Djs = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3000/disc", form)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    setForm({
-      djsName: "",
-      picture: "",
-      description: "",
-      amount: "",
+    .post("http://localhost:3000/comedy", form)
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log(err);
     });
+    setForm({
+        name : "",
+        picture : "",
+        description : "",
+        amount : "",
+    })
   };
 
   return (
     <div className="p-10 bg-teal-900 h-screen">
       <h1 className="text-center text-2xl text-white font-semibold underline decoration-4">
-        DJ's A. To DataBase
+        Comedian A. To DataBase
       </h1>
 
       <div className="w-full gap-2 flex flex-row items-center justify-evenly mt-8">
@@ -45,7 +46,7 @@ const Djs = () => {
             Comedian
           </button>
         </Link>
-        <Link to="/grayTwo">
+        <Link to="/dancer">
           <button className="h-8 w-24 bg-blue-700 text-white font-semibold rounded-2xl">
             Dancer
           </button>
@@ -55,14 +56,14 @@ const Djs = () => {
             Music A.
           </button>
         </Link>
-        <Link to="/sound">
-          <button className="h-8 w-24 bg-blue-700 text-white font-semibold rounded-2xl">
-            Sound
-          </button>
-        </Link>
         <Link to="/djs">
           <button className="h-8 w-24 bg-blue-700 text-white font-semibold rounded-2xl">
             DJ's Admin
+          </button>
+        </Link>
+        <Link to="/sound">
+          <button className="h-8 w-24 bg-blue-700 text-white font-semibold rounded-2xl">
+            Sound
           </button>
         </Link>
       </div>
@@ -71,7 +72,7 @@ const Djs = () => {
         <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
           <input
             type="text"
-            placeholder="DJ's Name"
+            placeholder="Comedian Name"
             onChange={handleChange}
             name="name"
             value={form.name}
@@ -112,4 +113,4 @@ const Djs = () => {
   );
 };
 
-export default Djs;
+export default Comedy;
