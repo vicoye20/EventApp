@@ -25,68 +25,76 @@ const Service = () => {
       </div>
 
       <div className="grid grid-cols-2 gap-3 p-10 mt-4">
-        <div className="grid items-center text-center">
+        <div className="grid items-center">
           <img src={img6} alt="" />
           <Link to="/entertainment">
             <button
-              className="text-center text-[15px]
-                text-slate-900"
+              className="text-[15px]
+                text-slate-900 font-semibold"
             >
               Entertainment
             </button>
           </Link>
         </div>
 
-        <div className="grid items-center text-center">
+        <div className="grid items-center">
           <img src={img1} alt="" />
           <Link to="/coming">
             <button
-              className="text-center text-[15px]
-                text-slate-900"
+              className="text-[15px]
+                text-slate-900 font-semibold"
             >
               Event Venue
             </button>
           </Link>
         </div>
 
-        <div className="grid items-center text-center">
+        <div className="grid items-center">
           <img src={img2} alt="" />
+          <Link to='/security'>
           <button
-            className="text-center text-[15px]
-                text-slate-900"
+            className="text-[15px]
+                text-slate-900 font-semibold"
           >
             Security Personal
           </button>
+          </Link>
         </div>
 
-        <div className="grid items-center text-center">
+        <div className="grid items-center">
           <img src={img3} alt="" />
+          <Link to='/'>
           <button
-            className="text-center text-[15px]
-                text-slate-900"
+            className="text-[15px]
+                text-slate-900 font-semibold"
           >
             Catering Service
           </button>
+          </Link>
         </div>
 
-        <div className="grid items-center text-center">
+        <div className="grid items-center">
           <img src={img4} alt="" />
-          <button
-            className="text-center text-[15px]
-                text-slate-900"
+         <Link to='/'>
+         <button
+            className="text-[15px]
+                text-slate-900 font-semibold"
           >
             Photography
           </button>
+         </Link>
         </div>
 
-        <div className="grid items-center text-center">
+        <div className="grid items-center">
           <img src={img5} alt="" />
+          <Link to ='/'>
           <button
-            className="text-center text-[15px]
-                text-slate-900"
+            className="text-[15px]
+                text-slate-900 font-semibold"
           >
             Videography
           </button>
+          </Link>
         </div>
       </div>
 

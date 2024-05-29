@@ -44,7 +44,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/event/664c87a37a020531f202121c")
+      .get("http://localhost:3000/event/66546f9fbdbdd5f074b4524b")
       .then((res) => {
         setEvent([res.data]);
         setLoading(false);

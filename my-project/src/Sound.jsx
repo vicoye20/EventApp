@@ -37,10 +37,10 @@ const Sound = () => {
   return (
     <div className="p-10 bg-teal-900 h-screen">
       <h1 className="text-center text-2xl text-white font-semibold underline decoration-4">
-        Comedian A. To DataBase
+        Sound A. To DataBase
       </h1>
 
-      <div className="w-full gap-2 flex flex-row items-center justify-evenly mt-8">
+      <div className="w-full gap-2 grid grid-cols-3 items-center justify-evenly mt-8">
         <Link to="/comedian">
           <button className="h-8 w-24 bg-blue-700 text-white font-semibold rounded-2xl">
             Comedian
@@ -64,6 +64,11 @@ const Sound = () => {
         <Link to="/sound">
           <button className="h-8 w-24 bg-blue-700 text-white font-semibold rounded-2xl">
             Sound
+          </button>
+        </Link>
+        <Link to="/mcs">
+          <button className="h-8 w-24 bg-blue-700 text-white font-semibold rounded-2xl">
+            MC's A
           </button>
         </Link>
       </div>

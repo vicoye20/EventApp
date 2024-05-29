@@ -40,7 +40,7 @@ const Mcs = () => {
         MC A. To DataBase
       </h1>
 
-      <div className="w-full gap-2 flex flex-row items-center justify-evenly mt-8">
+      <div className="w-full gap-2 grid grid-cols-3 items-center justify-evenly mt-8">
         <Link to="/comedian">
           <button className="h-8 w-24 bg-blue-700 text-white font-semibold rounded-2xl">
             Comedian
@@ -66,9 +66,9 @@ const Mcs = () => {
             Sound
           </button>
         </Link>
-        <Link to="/mc">
+        <Link to="/mcs">
           <button className="h-8 w-24 bg-blue-700 text-white font-semibold rounded-2xl">
-            Mcs
+            MC's A
           </button>
         </Link>
       </div>

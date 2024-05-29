@@ -42,15 +42,10 @@ const Dancer = () => {
         Dancer A. To DataBase
       </h1>
 
-      <div className="w-full gap-2 flex flex-row items-center justify-evenly mt-8">
-      <Link to="/comedian">
+      <div className="w-full gap-2 grid grid-cols-3 items-center justify-evenly mt-8">
+        <Link to="/comedian">
           <button className="h-8 w-24 bg-blue-700 text-white font-semibold rounded-2xl">
             Comedian
-          </button>
-        </Link>
-        <Link to="/sound">
-          <button className="h-8 w-24 bg-blue-700 text-white font-semibold rounded-2xl">
-            Sound
           </button>
         </Link>
         <Link to="/dancer">
@@ -62,10 +57,20 @@ const Dancer = () => {
           <button className="h-8 w-24 bg-blue-700 text-white font-semibold rounded-2xl">
             Music A.
           </button>
-          </Link>
-          <Link to="/djs">
+        </Link>
+        <Link to="/djs">
           <button className="h-8 w-24 bg-blue-700 text-white font-semibold rounded-2xl">
             DJ's Admin
+          </button>
+        </Link>
+        <Link to="/sound">
+          <button className="h-8 w-24 bg-blue-700 text-white font-semibold rounded-2xl">
+            Sound
+          </button>
+        </Link>
+        <Link to="/mcs">
+          <button className="h-8 w-24 bg-blue-700 text-white font-semibold rounded-2xl">
+            MC's A
           </button>
         </Link>
       </div>
