@@ -9,6 +9,7 @@ const Dancers = () => {
   const [dancer, setDancer] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     const dance = async () => {
@@ -23,8 +24,16 @@ const Dancers = () => {
     dance();
   },[])
 
+  const handleSearch = (e) => {
+    setSearchQuery(e.target.value);
+  }
+
+  const filterdancer = dancer.filter((dancer) =>
+    dancer.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
-    <div className="p-7 w-screen h-full mb-12">
+    <div className="p-7 w-screen h-full">
 
       <div className="fixed top-0 left-0 w-screen bg-white p-6">
         <div className="flex flex-row items-center text-slate-700">
@@ -43,6 +52,8 @@ const Dancers = () => {
           <input
             type="text"
             placeholder="Search"
+            onChange={handleSearch}
+            value={searchQuery}
             className="border-2 rounded-md bg-slate-200 pl-10 p-2 w-full placeholder:text-[18px] placeholder:text-slate-600 focus:outline-none"
           />
         </div>
@@ -74,7 +85,7 @@ const Dancers = () => {
 
 
       <div className="mt-36">
-          {dancer.map((dancer)=>(
+          {filterdancer.map((dancer)=>(
             <div key={dancer._id}>
               <img src={dancer.picture} alt="" className="h-40 w-[50%] rounded-2xl"/>
               <p className="font-semibold text-[15px] text-slate-800">{dancer.name}</p>

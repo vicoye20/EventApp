@@ -107,7 +107,7 @@ const Entertainment = () => {
   );
 
   return (
-    <div className="p-7 w-screen h-full mb-12">
+    <div className="p-7 w-screen h-full">
 
       <div className="fixed top-0 left-0 w-screen bg-white p-6">
         <div className="flex flex-row items-center text-slate-700">
@@ -224,7 +224,7 @@ const Entertainment = () => {
         ))}
       </div>
 
-      
+
     </div>
   );
 };

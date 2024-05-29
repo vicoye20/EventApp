@@ -9,6 +9,7 @@ const DJs = () => {
   const [djs, setDjs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("")
 
   useEffect(() => {
     const disc = async () => {
@@ -22,6 +23,14 @@ const DJs = () => {
     };
     disc();
   }, [])
+
+  const handleSearch = (e) => {
+    setSearchQuery(e.target.value);
+  }
+
+  const filterdjs = djs.filter((djs) =>
+    djs.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
   
 
   return (
@@ -44,6 +53,8 @@ const DJs = () => {
           <input
             type="text"
             placeholder="Search"
+            value={searchQuery}
+            onChange={handleSearch}
             className="border-2 rounded-md bg-slate-200 pl-10 p-2 w-full placeholder:text-[18px] placeholder:text-slate-600 focus:outline-none"
           />
         </div>
@@ -74,7 +85,7 @@ const DJs = () => {
       </div>
 
     <div className="mt-36">
-      {djs.map((djs) => (
+      {filterdjs.map((djs) => (
             <div key={djs._id}>
               <img src={djs.picture} alt="" className="h-40 w-[50%] rounded-2xl" />
               <p className="font-semibold text-[15px] text-slate-800">

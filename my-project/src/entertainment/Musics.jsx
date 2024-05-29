@@ -9,6 +9,7 @@ const Musics = () => {
   const [music, setMusic] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     const fetchMusic = async () => {
@@ -23,8 +24,16 @@ const Musics = () => {
     fetchMusic();
   },[])
 
+  const handleSearch = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  const filtermusic = music.filter((music) =>
+    music.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
-    <div className="p-7 w-screen h-full mb-12">
+    <div className="p-7 w-screen h-full">
       <div className="fixed top-0 left-0 w-screen bg-white p-6">
         <div className="flex flex-row items-center text-slate-700">
           <Link to="/service">
@@ -42,6 +51,8 @@ const Musics = () => {
           <input
             type="text"
             placeholder="Search"
+            onChange={handleSearch}
+            value={searchQuery}
             className="border-2 rounded-md bg-slate-200 pl-10 p-2 w-full placeholder:text-[18px] placeholder:text-slate-600 focus:outline-none"
           />
         </div>
@@ -72,7 +83,7 @@ const Musics = () => {
       </div>
 
       <div className="mt-36">
-        {music.map((music)=>(
+        {filtermusic.map((music)=>(
           <div key={music._id}>
             <img src={music.picture} alt="" className="h-40 w-[50%] rounded-2xl"/>
             <p className="font-semibold text-[15px] text-slate-800">{music.name}</p>
