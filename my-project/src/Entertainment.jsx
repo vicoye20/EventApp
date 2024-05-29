@@ -13,6 +13,7 @@ const Entertainment = () => {
   const [mc, setMc] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     const disc = async () => {
@@ -82,8 +83,32 @@ const Entertainment = () => {
     mcs();
   }, []);
 
+  const handleSearch = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  const filterdj = dj.filter((dj) =>
+    dj.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+  const filtercomedy = comedy.filter((comedy) =>
+    comedy.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+  const filterdancer = dancer.filter((dancer) =>
+    dancer.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+  const filtermusic = music.filter((music) =>
+    music.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+  const filtersound = sound.filter((sound) =>
+    sound.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+  const filtermc = mc.filter((mc) =>
+    mc.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="p-7 w-screen h-full mb-12">
+
       <div className="fixed top-0 left-0 w-screen bg-white p-6">
         <div className="flex flex-row items-center text-slate-700">
           <Link to="/service">
@@ -101,6 +126,8 @@ const Entertainment = () => {
           <input
             type="text"
             placeholder="Search"
+            onChange={handleSearch}
+            value={searchQuery}
             className="border-2 rounded-md bg-slate-200 pl-10 p-2 w-full placeholder:text-[18px] placeholder:text-slate-600 focus:outline-none"
           />
         </div>
@@ -131,7 +158,7 @@ const Entertainment = () => {
       </div>
 
       <div className="grid grid-cols-2 text-center gap-2 mt-36 w-full mx-auto justify-center items-center">
-        {dj.map((dj) => (
+        {filterdj.map((dj) => (
           <div key={dj._id}>
             <img src={dj.picture} alt="" className="h-40 w-44 rounded-2xl" />
             <button className="font-semibold text-[15px] text-slate-800">
@@ -140,7 +167,7 @@ const Entertainment = () => {
           </div>
         ))}
 
-        {comedy.map((comedy) => (
+        {filtercomedy.map((comedy) => (
           <div key={comedy._id}>
             <img
               src={comedy.picture}
@@ -153,7 +180,7 @@ const Entertainment = () => {
           </div>
         ))}
 
-        {dancer.map((dancer) => (
+        {filterdancer.map((dancer) => (
           <div key={dancer._id}>
             <img
               src={dancer.picture}
@@ -169,7 +196,7 @@ const Entertainment = () => {
           </div>
         ))}
 
-        {music.map((music) => (
+        {filtermusic.map((music) => (
           <div key={music._id}>
             <img src={music.picture} alt="" className="h-40 w-44 rounded-2xl" />
             <button className="font-semibold text-[15px] text-slate-800">
@@ -178,7 +205,7 @@ const Entertainment = () => {
           </div>
         ))}
 
-        {sound.map((sound) => (
+        {filtersound.map((sound) => (
           <div key={sound._id}>
             <img src={sound.picture} alt="" className="h-40 w-44 rounded-2xl" />
             <button className="font-semibold text-[15px] text-slate-800">
@@ -187,7 +214,7 @@ const Entertainment = () => {
           </div>
         ))}
 
-        {mc.map((mc) => (
+        {filtermc.map((mc) => (
           <div key={mc._id}>
             <img src={mc.picture} alt="" className="h-40 w-44 rounded-2xl" />
             <button className="font-semibold text-[15px] text-slate-800">
@@ -196,6 +223,8 @@ const Entertainment = () => {
           </div>
         ))}
       </div>
+
+      
     </div>
   );
 };

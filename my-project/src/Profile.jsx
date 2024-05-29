@@ -1,5 +1,4 @@
 import React from "react";
-import { FaLocationDot } from "react-icons/fa6";
 import { IoMdHome } from "react-icons/io";
 import { RiRadioFill } from "react-icons/ri";
 import { FaRegUser } from "react-icons/fa";
@@ -14,11 +13,11 @@ const Profile = () => {
       <h1 className="text-[20px] text-slate-700 font-bold">Profile</h1>
 
       <div
-        className="h-32 w-32 bg-slate-300 m-auto rounded-full mt-8"
-        type="file"
+        className="h-32 w-32 m-auto border-2 border-red-900 rounded-full mt-8"
+        
       ></div>
 
-      <h1 className="text-[20px] text-slate-700 text-center mt-2">
+      <h1 className="text-[20px] text-slate-900 font-semibold text-center mt-2">
         Ayantoye David
       </h1>
 
@@ -38,19 +37,6 @@ const Profile = () => {
             <PiGreaterThan />
           </button>
         </div>
-
-        {/* <div className="flex flex-row justify-between items-center w-full p-6 -mt-8">
-          <div className="flex items-center">
-            <button className="h-8 w-8 bg-red-200 rounded-md">
-              <FaLocationDot className="m-auto text-red-600" />
-            </button>
-            <p className=" text-slate-800 ml-3">Location</p>
-          </div>
-
-          <button>
-            <PiGreaterThan />
-          </button>
-        </div> */}
 
         <div className="flex flex-row justify-between items-center w-full p-6 -mt-8">
           <div className="flex items-center">
