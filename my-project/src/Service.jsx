@@ -63,7 +63,7 @@ const Service = () => {
 
         <div className="grid items-center">
           <img src={img3} alt="" />
-          <Link to='/'>
+          <Link to='/catering'>
           <button
             className="text-[15px]
                 text-slate-900 font-semibold"
@@ -75,7 +75,7 @@ const Service = () => {
 
         <div className="grid items-center">
           <img src={img4} alt="" />
-         <Link to='/'>
+         <Link to='/photography'>
          <button
             className="text-[15px]
                 text-slate-900 font-semibold"
@@ -87,7 +87,7 @@ const Service = () => {
 
         <div className="grid items-center">
           <img src={img5} alt="" />
-          <Link to ='/'>
+          <Link to ='/videography'>
           <button
             className="text-[15px]
                 text-slate-900 font-semibold"

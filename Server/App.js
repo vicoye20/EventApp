@@ -11,6 +11,7 @@ const McsModel = require("./Models/McsModel")
 const DiscModel = require("./Models/DiscModel")
 const DancerModel = require("./Models/DancerModel")
 const SoundModel = require("./Models/SoundModel")
+const SecurityModel = require("./Models/SecurityModel")
 const cors = require("cors")
 
 const App = express();
@@ -262,6 +263,32 @@ App.get("/mcs",async(req,res)=>{
     try {
         const mcs = await McsModel.find(req.body)
         res.status(200).json(mcs)
+    }
+     catch (error) {
+        res.status(500).json({error:error.message})
+    }
+})
+
+// post security task
+
+App.post("/security", async (req,res) => {
+    console.log("posted")
+    try {
+        const security = await SecurityModel.create(req.body)
+        res.status(200).json(security)
+    }
+     catch (error) {
+        res.status(500).json({error:error.message})
+    }
+})
+
+// get data from security
+
+App.get("/securities",async(req,res)=>{
+    console.log("posted")
+    try {
+        const securities = await SecurityModel.find(req.body)
+        res.status(200).json(securities)
     }
      catch (error) {
         res.status(500).json({error:error.message})
