@@ -51,7 +51,7 @@ const Service = () => {
 
         <div className="grid items-center">
           <img src={img2} alt="" />
-          <Link to='/security'>
+          <Link to='/securities'>
           <button
             className="text-[15px]
                 text-slate-900 font-semibold"

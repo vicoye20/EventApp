@@ -1,4 +1,5 @@
 import {React, useState} from "react";
+import axios from "axios";
 
 const SecurityAdmin = () => {
 
@@ -43,7 +44,7 @@ const SecurityAdmin = () => {
         <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
           <input
             type="text"
-            placeholder="Sound Name"
+            placeholder="Security Name"
             onChange={handleChange}
             name="name"
             value={form.name}

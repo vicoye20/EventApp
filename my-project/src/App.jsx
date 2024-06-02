@@ -27,6 +27,7 @@ import Dancers from './entertainment/Dancers';
 import Musics from './entertainment/Musics';
 import Sounds from './entertainment/Sounds';
 import SecurityAdmin from './security/SecurityAdmin';
+import Security from './security/Security';
 
 
 const App = () => {
@@ -66,6 +67,7 @@ const App = () => {
                   <Route path='/entertainment/sounds' element={<Sounds/>} />
 
                   <Route path='/security' element={<SecurityAdmin/>} />
+                  <Route path='/securities' element={<Security/>}/>
 
                   <Route path="/signUp" element={<SignUp/>} />
                   <Route path="/signIn" element={<SignIn/>} />
