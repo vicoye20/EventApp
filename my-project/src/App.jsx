@@ -30,6 +30,8 @@ import SecurityAdmin from './security/SecurityAdmin';
 import Security from './security/Security';
 import CateringAdmin from './catering/CateringAdmin'; 
 import Catering from './catering/Catering';
+import AdminPhoto from './photography/AdminPhoto';
+import Photography from './photography/Photography';
 
 
 const App = () => {
@@ -73,6 +75,9 @@ const App = () => {
 
                   <Route path='/catering' element={<CateringAdmin/>} />
                   <Route path='/caterings' element={<Catering/>} />
+
+                  <Route path='/photography' element={<AdminPhoto/>} />
+                  <Route path='/photographies' element={<Photography/>} />
 
                   <Route path="/signUp" element={<SignUp/>} />
                   <Route path="/signIn" element={<SignIn/>} />

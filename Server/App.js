@@ -324,6 +324,32 @@ App.get("/caterings",async(req,res)=>{
     }
 })
 
+// post photographer task
+
+App.post("/photographer", async (req,res) => {
+    console.log("posted")
+    try {
+        const photographer = await PhotoModel.create(req.body)
+        res.status(200).json(photographer)
+    }
+     catch (error) {
+        res.status(500).json({error:error.message})
+    }
+})
+
+// get data from photographer
+
+App.get("/photographers",async(req,res)=>{
+    console.log("posted")
+    try {
+        const photographers = await PhotoModel.find(req.body)
+        res.status(200).json(photographers)
+    }
+     catch (error) {
+        res.status(500).json({error:error.message})
+    }
+})  
+
 // connect to mongoDB
 
 mongoose.connect(process.env.MONGO_URI).then(()=>{
