@@ -12,6 +12,9 @@ const DiscModel = require("./Models/DiscModel")
 const DancerModel = require("./Models/DancerModel")
 const SoundModel = require("./Models/SoundModel")
 const SecurityModel = require("./Models/SecurityModel")
+const CateringModel = require("./Models/CateringModel")
+const PhotoModel = require("./Models/PhotoModel")
+const VideoModel = require("./Models/VideoModel")
 const cors = require("cors")
 
 const App = express();
@@ -289,6 +292,32 @@ App.get("/securities",async(req,res)=>{
     try {
         const securities = await SecurityModel.find(req.body)
         res.status(200).json(securities)
+    }
+     catch (error) {
+        res.status(500).json({error:error.message})
+    }
+})
+
+// post catering task   
+
+App.post("/catering", async (req,res) => {
+    console.log("posted")
+    try {
+        const catering = await CateringModel.create(req.body)
+        res.status(200).json(catering)
+    }
+     catch (error) {
+        res.status(500).json({error:error.message})
+    }
+})
+
+// get data from catering
+
+App.get("/caterings",async(req,res)=>{
+    console.log("posted")
+    try {
+        const caterings = await CateringModel.find(req.body)
+        res.status(200).json(caterings)
     }
      catch (error) {
         res.status(500).json({error:error.message})

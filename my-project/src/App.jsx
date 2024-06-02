@@ -28,6 +28,8 @@ import Musics from './entertainment/Musics';
 import Sounds from './entertainment/Sounds';
 import SecurityAdmin from './security/SecurityAdmin';
 import Security from './security/Security';
+import CateringAdmin from './catering/CateringAdmin'; 
+import Catering from './catering/Catering';
 
 
 const App = () => {
@@ -68,6 +70,9 @@ const App = () => {
 
                   <Route path='/security' element={<SecurityAdmin/>} />
                   <Route path='/securities' element={<Security/>}/>
+
+                  <Route path='/catering' element={<CateringAdmin/>} />
+                  <Route path='/caterings' element={<Catering/>} />
 
                   <Route path="/signUp" element={<SignUp/>} />
                   <Route path="/signIn" element={<SignIn/>} />

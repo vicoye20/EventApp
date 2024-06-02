@@ -63,7 +63,7 @@ const Service = () => {
 
         <div className="grid items-center">
           <img src={img3} alt="" />
-          <Link to='/catering'>
+          <Link to='/caterings'>
           <button
             className="text-[15px]
                 text-slate-900 font-semibold"

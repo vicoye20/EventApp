@@ -54,11 +54,11 @@ const Security = () => {
         <div>
             {data.map((data) => (
                 <div key={data._id}>
-                      <img src={data.picture} alt="" className="rounded-2xl w-60 h-30 mt-4"/>
+                      <img src={data.picture} alt="" className="rounded-2xl w-full h-48 mt-4"/>
                       <button className="text-slate-900 font-semibold text-[18px]">{data.name}</button>
 
                       <h1 className="text-slate-900 font-semibold text-[24px] mt-5">Description</h1> 
-                      <p className="text-slate-900 text-[18px]">{data.description}</p> 
+                      <p className="text-slate-900 text-[17px]">{data.description}</p> 
                       <button className="w-full h-10 font-semibold text-slate-100 bg-blue-700 rounded-lg mt-5">{data.amount}</button>
                 </div>
             ))}
