@@ -108,7 +108,6 @@ const Entertainment = () => {
 
   return (
     <div className="p-7 w-screen h-full">
-
       <div className="fixed top-0 left-0 w-screen bg-white p-6">
         <div className="flex flex-row items-center text-slate-700">
           <Link to="/service">
@@ -133,7 +132,7 @@ const Entertainment = () => {
         </div>
 
         <div className="flex flex-row gap-[18px] mt-3 text-[15.5px] font-semibold text-slate-800">
-        <Link to="/entertainment">
+          <Link to="/entertainment">
             <button>All</button>
           </Link>
           <Link to="/entertainment/djs">
@@ -160,7 +159,7 @@ const Entertainment = () => {
       <div className="grid grid-cols-2 text-center gap-2 mt-36 w-full mx-auto justify-center items-center">
         {filterdj.map((dj) => (
           <div key={dj._id}>
-            <img src={dj.picture} alt="" className="h-40 w-44 rounded-2xl" />
+            <img src={dj.picture} alt="" className="h-40 w-44 rounded-xl" />
             <button className="font-semibold text-[15px] text-slate-800">
               {dj.name}
             </button>
@@ -172,7 +171,7 @@ const Entertainment = () => {
             <img
               src={comedy.picture}
               alt=""
-              className="h-40 w-44 rounded-2xl"
+              className="h-40 w-44 rounded-xl"
             />
             <button className="font-semibold text-[15px] text-slate-800 text-center">
               {comedy.name}
@@ -185,7 +184,7 @@ const Entertainment = () => {
             <img
               src={dancer.picture}
               alt=""
-              className="h-40 w-44 rounded-2xl"
+              className="h-40 w-44 rounded-xl"
             />
             <button
               className="font-semibold text-[15px] 
@@ -198,7 +197,7 @@ const Entertainment = () => {
 
         {filtermusic.map((music) => (
           <div key={music._id}>
-            <img src={music.picture} alt="" className="h-40 w-44 rounded-2xl" />
+            <img src={music.picture} alt="" className="h-40 w-44 rounded-xl" />
             <button className="font-semibold text-[15px] text-slate-800">
               {music.name}
             </button>
@@ -207,7 +206,7 @@ const Entertainment = () => {
 
         {filtersound.map((sound) => (
           <div key={sound._id}>
-            <img src={sound.picture} alt="" className="h-40 w-44 rounded-2xl" />
+            <img src={sound.picture} alt="" className="h-40 w-44 rounded-xl" />
             <button className="font-semibold text-[15px] text-slate-800">
               {sound.name}
             </button>
@@ -216,15 +215,13 @@ const Entertainment = () => {
 
         {filtermc.map((mc) => (
           <div key={mc._id}>
-            <img src={mc.picture} alt="" className="h-40 w-44 rounded-2xl" />
+            <img src={mc.picture} alt="" className="h-40 w-44 rounded-xl" />
             <button className="font-semibold text-[15px] text-slate-800">
               {mc.name}
             </button>
           </div>
         ))}
       </div>
-
-
     </div>
   );
 };

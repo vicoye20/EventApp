@@ -1,5 +1,6 @@
 import {React, useState} from 'react'
 import axios from 'axios';
+import { Link } from "react-router-dom";
 
 const AdminPhoto = () => {
 
@@ -38,6 +39,33 @@ const AdminPhoto = () => {
     <h1 className="text-center text-2xl text-white font-semibold underline decoration-4">
    Photographer Admin To Database
  </h1>
+
+ <div className="mt-10 flex flex-row justify-evenly items-center gap-1">
+
+        <Link to="/videography">
+          <button className="w-20 h-10 bg-white text-center font-semibold rounded-xl text-slate-800">
+            Video A.
+          </button>
+        </Link>
+
+        <Link to="/security">
+          <button className="w-24 h-10 bg-white text-center font-semibold rounded-xl text-slate-800">
+            Security A.
+          </button>
+        </Link>
+
+        <Link to="/photography">
+          <button className="w-32 h-10 bg-white text-center font-semibold rounded-xl text-slate-800">
+            Photography A.
+          </button>
+        </Link>
+
+        <Link to="/catering">
+          <button className="w-28 h-10 bg-white text-center font-semibold rounded-xl text-slate-800">
+            Catering A.
+          </button>
+        </Link>
+      </div>
 
  <div className="text-center items-center justify-center mt-8">
    <form className="flex flex-col gap-4" onSubmit={handleSubmit}>

@@ -1,14 +1,13 @@
-import {React,useState} from 'react'
-import axios from 'axios'
+import { React, useState } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 
-const CateringAdmin = () => {
-
+const AdminVideo = () => {
   const [form, setForm] = useState({
-    name : "",
-    picture : "",
-    description : "",
-    amount : "",
+    name: "",
+    picture: "",
+    description: "",
+    amount: "",
   });
 
   const handleChange = (e) => {
@@ -19,11 +18,11 @@ const CateringAdmin = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-     .post("http://localhost:3000/catering", form)
-     .then((res) => {
+      .post("http://localhost:3000/videographer", form)
+      .then((res) => {
         console.log(res);
       })
-     .catch((err) => {
+      .catch((err) => {
         console.log(err);
       });
     setForm({
@@ -32,12 +31,12 @@ const CateringAdmin = () => {
       description: "",
       amount: "",
     });
-  }
+  };
 
   return (
     <div className="p-10 bg-teal-900 h-screen">
-         <h1 className="text-center text-2xl text-white font-semibold underline decoration-4">
-        Catering Admin To Database
+      <h1 className="text-center text-2xl text-white font-semibold underline decoration-4">
+        Videographer Admin To Database
       </h1>
 
       <div className="mt-10 flex flex-row justify-evenly items-center gap-1">
@@ -71,7 +70,7 @@ const CateringAdmin = () => {
         <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
           <input
             type="text"
-            placeholder="Catering Name"
+            placeholder="Videographer Name"
             onChange={handleChange}
             name="name"
             value={form.name}
@@ -109,7 +108,7 @@ const CateringAdmin = () => {
         </form>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CateringAdmin
+export default AdminVideo;

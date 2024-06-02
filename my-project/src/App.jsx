@@ -32,6 +32,8 @@ import CateringAdmin from './catering/CateringAdmin';
 import Catering from './catering/Catering';
 import AdminPhoto from './photography/AdminPhoto';
 import Photography from './photography/Photography';
+import AdminVideo from './videography/AdminVideo';
+import Video from './videography/Video';
 
 
 const App = () => {
@@ -78,6 +80,9 @@ const App = () => {
 
                   <Route path='/photography' element={<AdminPhoto/>} />
                   <Route path='/photographies' element={<Photography/>} />
+
+                  <Route path='/videography' element={<AdminVideo/>} />
+                  <Route path='/videographies' element={<Video/>} />
 
                   <Route path="/signUp" element={<SignUp/>} />
                   <Route path="/signIn" element={<SignIn/>} />

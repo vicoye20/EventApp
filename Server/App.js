@@ -350,6 +350,32 @@ App.get("/photographers",async(req,res)=>{
     }
 })  
 
+// post videographer task
+
+App.post("/videographer", async (req,res) => {
+    console.log("posted")
+    try {
+        const videographer = await VideoModel.create(req.body)
+        res.status(200).json(videographer)
+    }
+     catch (error) {
+        res.status(500).json({error:error.message})
+    }
+})
+
+// get data from videographer
+
+App.get("/videographers",async(req,res)=>{
+    console.log("posted")
+    try {
+        const videographers = await VideoModel.find(req.body)
+        res.status(200).json(videographers)
+    }
+     catch (error) {
+        res.status(500).json({error:error.message})
+    }
+})
+
 // connect to mongoDB
 
 mongoose.connect(process.env.MONGO_URI).then(()=>{
