@@ -1,41 +1,39 @@
-import {React, useState, useEffect} from "react";
-import { FaArrowLeftLong } from 'react-icons/fa6'
-import { GoSearch } from 'react-icons/go'
+import { React, useState, useEffect } from "react";
+import { FaArrowLeftLong } from "react-icons/fa6";
+import { GoSearch } from "react-icons/go";
 import { FaLocationDot } from "react-icons/fa6";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
 const Coming = () => {
+  const [event, setEvent] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("");
 
-    const [event, setEvent] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-    const [searchQuery, setSearchQuery] = useState("");
+  useEffect(() => {
+    const routeEvent = async () => {
+      try {
+        const res = await axios.get("http://localhost:3000/eventsThree");
+        setEvent(res.data);
+      } catch (err) {
+        setError(err);
+        setLoading(false);
+      }
+    };
+    routeEvent();
+  }, []);
 
-  
-    useEffect(() => {
-      const routeEvent = async () => {
-        try {
-          const res = await axios.get("http://localhost:3000/eventsThree");
-          setEvent(res.data);
-        } catch (err) {
-          setError(err);
-          setLoading(false);
-        }
-      };
-      routeEvent();
-    }, []);
+  const handleSearch = (e) => {
+    setSearchQuery(e.target.value);
+  };
 
-    const handleSearch = (e) => {
-      setSearchQuery(e.target.value);
-    }
-  
-    const filteredEvents = event.filter((event) =>
-      event.eventName.toLowerCase().includes(searchQuery.toLowerCase())
-    );
+  const filteredEvents = event.filter((event) =>
+    event.eventName.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   return (
-    <div className='p-7 w-screen h-full'>
+    <div className="p-7 w-screen h-full">
       <div className="fixed top-0 left-0 w-screen bg-white p-6">
         <div className="flex flex-row items-center text-slate-700">
           <Link to="/">
@@ -82,7 +80,6 @@ const Coming = () => {
           </div>
         ))}
       </div>
-
     </div>
   );
 };

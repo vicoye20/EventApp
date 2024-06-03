@@ -8,7 +8,8 @@ import { FaRegClock } from "react-icons/fa6";
 import { FaLocationDot } from "react-icons/fa6";
 
 const Details = () => {
-  const { id } = useParams();
+  // const params = useParams();
+  const { id } = useParams()
   const [event, setEvent] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

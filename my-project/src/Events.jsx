@@ -29,7 +29,7 @@ const Events = () => {
 
   const handleSearch = (e) => {
     setSearchQuery(e.target.value);
-  }
+  };
 
   const filteredEvents = event.filter((event) =>
     event.eventName.toLowerCase().includes(searchQuery.toLowerCase())
@@ -59,24 +59,28 @@ const Events = () => {
 
       <div className="flex flex-col gap-4 mt-[7rem]">
         {filteredEvents.map((event) => (
-          <div>
-            <img src={event.picture} className="w-full h-32 rounded-xl" />
+          
+            <div>
+              
+              <img src={event.picture} className="w-full h-32 rounded-xl" />
 
-            <div className="flex flex-row justify-between items-center w-full">
-              <h1 className="text-black text-[14px]">{event.eventName}</h1>
-              <p className="text-slate-600 text-[14px]">{event.amount}</p>
+              <div className="flex flex-row justify-between items-center w-full">
+                <h1 className="text-black text-[14px]">{event.eventName}</h1>
+                <p className="text-slate-800 text-[14px]">{event.amount}</p>
+              </div>
+
+              <div className="flex flex-row items-center justify-between w-full">
+                <p className="flex flex-row items-center text-[13px] text-slate-900">
+                  <FaLocationDot className="items-center text-red-700" />
+                  {event.location}
+                </p>
+                <p className="text-[13px] text-slate-900">{event.date}</p>
+              </div>
+              
+              <p className="text-[13px] text-slate-900">{event.time}</p>
+              
             </div>
-
-            <div className="flex flex-row items-center justify-between w-full">
-              <p className="flex flex-row items-center text-[13px] text-slate-900">
-                <FaLocationDot className="items-center text-red-700" />
-                {event.location}
-              </p>
-              <p className="text-[13px] text-slate-900">{event.date}</p>
-            </div>
-
-            <p className="text-[13px] text-slate-900">{event.time}</p>
-          </div>
+          
         ))}
       </div>
 

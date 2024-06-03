@@ -39,7 +39,7 @@ const Service = () => {
 
         <div className="grid items-center">
           <img src={img1} alt="" />
-          <Link to="/coming">
+          <Link to="/venues">
             <button
               className="text-[15px]
                 text-slate-900 font-semibold"
@@ -51,49 +51,49 @@ const Service = () => {
 
         <div className="grid items-center">
           <img src={img2} alt="" />
-          <Link to='/securities'>
-          <button
-            className="text-[15px]
+          <Link to="/securities">
+            <button
+              className="text-[15px]
                 text-slate-900 font-semibold"
-          >
-            Security Personal
-          </button>
+            >
+              Security Personal
+            </button>
           </Link>
         </div>
 
         <div className="grid items-center">
           <img src={img3} alt="" />
-          <Link to='/caterings'>
-          <button
-            className="text-[15px]
+          <Link to="/caterings">
+            <button
+              className="text-[15px]
                 text-slate-900 font-semibold"
-          >
-            Catering Service
-          </button>
+            >
+              Catering Service
+            </button>
           </Link>
         </div>
 
         <div className="grid items-center">
           <img src={img4} alt="" />
-         <Link to='/photographies'>
-         <button
-            className="text-[15px]
+          <Link to="/photographies">
+            <button
+              className="text-[15px]
                 text-slate-900 font-semibold"
-          >
-            Photography
-          </button>
-         </Link>
+            >
+              Photography
+            </button>
+          </Link>
         </div>
 
         <div className="grid items-center">
           <img src={img5} alt="" />
-          <Link to ='/videographies'>
-          <button
-            className="text-[15px]
+          <Link to="/videographies">
+            <button
+              className="text-[15px]
                 text-slate-900 font-semibold"
-          >
-            Videography
-          </button>
+            >
+              Videography
+            </button>
           </Link>
         </div>
       </div>

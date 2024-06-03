@@ -46,8 +46,8 @@ const Upcoming = () => {
               <FaArrowLeftLong />
             </button>
           </Link>
-          <h1 className="text-center text-[20px] ml-32 font-semibold">
-            Event Venues
+          <h1 className="text-center text-[20px] ml-40 font-semibold">
+            Venues
           </h1>
         </div>
 

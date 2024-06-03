@@ -92,6 +92,17 @@ App.get("/eventsTwo",async(req,res)=>{
     }
 })
 
+App.get(`/eventsTwo/:id`,async(req,res) => {
+    const {id} = req.params
+    try {
+        const eventsTwo = await Event2Model.findById(id)
+        res.status(200).json(eventsTwo)
+    }
+     catch (error) {
+        res.status(500).json({error:error.message})
+    }
+})
+
 // event routes
 
 App.post("/eventThree",async(req,res)=>{

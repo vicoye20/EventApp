@@ -19,20 +19,7 @@ import "swiper/css/pagination";
 // import required modules
 import { Pagination } from "swiper/modules";
 
-const items = [
-  {
-    id: "details",
-    eventName: "",
-    location: "",
-    picture: "",
-    time: "",
-    amount: "",
-    date: "",
-    descriptionForRegular: "",
-    descriptionForVip: "",
-    descriptionForTableForFive: "",
-  },
-];
+
 
 const Home = () => {
   const [event, setEvent] = useState([]);
@@ -44,7 +31,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/event/66546f9fbdbdd5f074b4524b")
+      .get("http://localhost:3000/event/664b5378a6248b2964d4e661")
       .then((res) => {
         setEvent([res.data]);
         setLoading(false);
@@ -105,7 +92,7 @@ const Home = () => {
 
   return (
     <div className="p-7 w-screen h-full mb-11">
-      <div className="fixed top-0 left-0 w-screen bg-white p-6">
+      <div className="fixed top-0 left-0 w-screen bg-white p-6 tablet:hidden">
         <div className="flex flex-row">
           <FaLocationDot className="text-red-600 mt-1 w-5 h-5" />
           <h1 className="text-black text-[18px] ml-1">
@@ -125,6 +112,39 @@ const Home = () => {
         </div>
       </div>
 
+      <header className="hidden tablet:block bg-slate-900 w-screen h-16 p-8 fixed justify-between items-center z-10">
+        <nav>
+        <Link to="/">
+          <button className="text-center text-white text-[12px]">
+            <IoMdHome className="h-6 w-6 m-auto" />
+            Home
+          </button>
+        </Link>
+
+        <Link to="/events">
+          <button className="text-center text-white text-[12px]">
+            <RiRadioFill className="h-6 w-6 m-auto" />
+            Events
+          </button>
+        </Link>
+
+        <Link to="/service">
+          <button className="text-center text-white text-[12px]">
+            <PiUsersThreeFill className="h-6 w-6 m-auto" />
+            Services
+          </button>
+        </Link>
+
+        <Link to="/profile">
+          <button className="text-center text-white text-[12px]">
+            <FaRegUser className="h-6 w-6 m-auto" />
+            Profile
+          </button>
+        </Link>
+        </nav>
+
+      </header>
+
       <h1 className="text-[20px] mt-24 font-semibold text-slate-800">
         Happening Now!!!
       </h1>
@@ -132,54 +152,33 @@ const Home = () => {
       <div>
         {filteredEvent.map((event) => (
           <div key={event._id}>
-            <div className="mt-3">
-              <img
-                className="w-full h-32 rounded-[20px]"
-                src={event.picture}
-                alt=""
-              />
-            </div>
-            <div className="flex flex-row items-center justify-between w-full">
-              {items.map((item) => (
-                <div key={item.id}>
-                  <Link to={`/details/${item.id}`}>
-                    <p className="text-[15px] text-slate-900 font-bold">
-                      {event.eventName}
-                    </p>
-                  </Link>
-                </div>
-              ))}
+            <Link to={`events/${event._id}`}>
+              <div className="mt-3">
+                <img
+                  className="w-full h-32 rounded-[20px]"
+                  src={event.picture}
+                  alt=""
+                />
+              </div>
+              <div className="flex flex-row items-center justify-between w-full">
+                <p className="text-[15px] text-slate-900 font-bold">
+                  {event.eventName}
+                </p>
 
-              {items.map((item) => (
-                <div key={item.id}>
-                  <Link to={`/details/${item.id}`}>
-                    <p className="text-[15px] text-slate-900 font-bold">
-                      {event.amount}
-                    </p>
-                  </Link>
-                </div>
-              ))}
-            </div>
+                <p className="text-[15px] text-slate-900 font-bold">
+                  {event.amount}
+                </p>
+              </div>
 
-            <div className="flex flex-row items-center justify-between w-full">
-              {items.map((item) => (
-                <div key={item.id}>
-                  <Link to={`/details/${item.id}`}>
-                    <p className="text-[15px] text-slate-900 flex items-center">
-                      <FaLocationDot className="items-center text-red-700" />
-                      {event.location}
-                    </p>
-                  </Link>
-                </div>
-              ))}
-              {items.map((item) => (
-                <div key={item.id}>
-                  <Link to={`/details/${item.id}`}>
-                    <p className="text-[15px] text-slate-900">{event.time}</p>
-                  </Link>
-                </div>
-              ))}
-            </div>
+              <div className="flex flex-row items-center justify-between w-full">
+                <p className="text-[15px] text-slate-900 flex items-center">
+                  <FaLocationDot className="items-center text-red-700" />
+                  {event.location}
+                </p>
+
+                <p className="text-[15px] text-slate-900">{event.time}</p>
+              </div>
+            </Link>
           </div>
         ))}
       </div>
@@ -188,90 +187,80 @@ const Home = () => {
         <h1 className="text-[20px] font-semibold text-slate-800">
           Upcoming Events
         </h1>
-        <Link to="/coming">
+        <Link to="/events">
           <button className="flex flex-row items-center gap-1 text-slate-800">
             See all <FaRegPlusSquare />
           </button>
         </Link>
       </div>
 
-
- <Swiper
-              slidesPerView={2.5}
-              spaceBetween={10}
-            >
-      <div className="flex gap-3 -mt-2">
-        {filteredEvents.map((allEvents) => (
-          <SwiperSlide>
-          <div key={allEvents._id}>
-            <div className="flex flex-row w-full h-32 mt-4">
-              <img
-                className="flex flex-row h-32 w-40 rounded-lg"
-                src={allEvents.picture}
-                alt=""
-              />
-            </div>
-
-            {items.map((item) => (
-              <div key={item.id}>
-                <Link to={`/details/${item.id}`}>
+      <Swiper slidesPerView={2.5} spaceBetween={10}>
+        <div className="flex gap-3 -mt-2">
+          {filteredEvents.map((allEvents) => (
+            <SwiperSlide>
+              <div key={allEvents._id}>
+                <Link to={`/events/${allEvents._id}`}>
+                  <div className="flex flex-row w-full h-32 mt-4">
+                    <img
+                      className="flex flex-row h-32 w-40 rounded-lg"
+                      src={allEvents.picture}
+                      alt=""
+                    />
+                  </div>
                   <p className="text-[12px] text-slate-900 font-semibold">
                     {allEvents.eventName}
                   </p>
+                  <p className="flex flex-row items-center text-[10px] text-slate-900">
+                    <FaLocationDot className="items-center text-red-700" />
+                    {allEvents.location}
+                  </p>
                 </Link>
               </div>
-            ))}
-
-            <p className="flex flex-row items-center text-[10px] text-slate-900">
-              <FaLocationDot className="items-center text-red-700" />
-              {allEvents.location}
-            </p>
-          </div>
-          </SwiperSlide>
-        ))}
-      </div>
+            </SwiperSlide>
+          ))}
+        </div>
       </Swiper>
 
       <div className="flex flex-row justify-between w-full items-center mt-6">
         <h1 className="text-[20px] font-semibold text-slate-800">
           Discover Venues
         </h1>
-        <Link to="/upcoming">
+        <Link to="/venues">
           <button className="flex flex-row items-center gap-1 text-slate-800">
             See all <FaRegPlusSquare />
           </button>
         </Link>
       </div>
 
-      <Swiper
-              slidesPerView={2.5}
-              spaceBetween={10}
-            >
-      <div className="flex gap-3 -mt-2">
-        {filterEvents.map((disEvent) => (
-          <SwiperSlide>
-          <div key={disEvent._id}>
-            <div className="flex flex-row w-full h-32 mt-4">
-              <img
-                className="flex flex-row h-32 w-40 rounded-lg"
-                src={disEvent.picture}
-                alt=""
-              />
-            </div>
-            <p className="text-[12px] text-slate-900 font-semibold">
-              {disEvent.eventName}
-            </p>
-            <p className="flex flex-row items-center text-[10px] text-slate-900">
-              <FaLocationDot className="items-center text-red-700" />
-              {disEvent.location}
-            </p>
-          </div>
-          </SwiperSlide>
-        ))}
-      </div>
+      <Swiper slidesPerView={2.5} spaceBetween={10}>
+        <div className="flex gap-3 -mt-2">
+          {filterEvents.map((disEvent) => (
+            <SwiperSlide>
+              <div key={disEvent._id}>
+                <Link to={`/venues/${disEvent._id}`}>
+                  <div className="flex flex-row w-full h-32 mt-4">
+                    <img
+                      className="flex flex-row h-32 w-40 rounded-lg"
+                      src={disEvent.picture}
+                      alt=""
+                    />
+                  </div>
+
+                  <p className="text-[12px] text-slate-900 font-semibold">
+                    {disEvent.eventName}
+                  </p>
+                  <p className="flex flex-row items-center text-[10px] text-slate-900">
+                    <FaLocationDot className="items-center text-red-700" />
+                    {disEvent.location}
+                  </p>
+                </Link>
+              </div>
+            </SwiperSlide>
+          ))}
+        </div>
       </Swiper>
 
-      <footer className="bg-slate-900 w-screen h-16 p-8 fixed left-0 bottom-0 flex flex-row justify-between items-center z-10">
+      <footer className="bg-slate-900 w-screen h-16 p-8 fixed left-0 bottom-0 flex flex-row justify-between items-center z-10 tablet:hidden">
         <Link to="/">
           <button className="text-center text-white text-[12px]">
             <IoMdHome className="h-6 w-6 m-auto" />
