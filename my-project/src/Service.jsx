@@ -14,17 +14,50 @@ import img6 from "../src/image/Rectangle 9(7).svg";
 
 const Service = () => {
   return (
-    <div className="p-7 w-screen h-full mb-9">
-      <div className="fixed top-0 left-0 w-screen bg-slate-300 p-6">
-        <div className="flex flex-row">
-          <FaLocationDot className="text-red-600 mt-1 w-5 h-5" />
-          <h1 className="text-slate-800 text-[18px] ml-1 font-semibold">
+    <div className="p-7 w-screen h-full mb-9 tablet:bg-slate-100 tablet:mb-0">
+      <div className="fixed top-0 left-0 w-screen bg-slate-300 p-6 tablet:mt-12">
+        <div className="flex flex-row tablet:justify-center">
+          <FaLocationDot className="text-red-600 mt-1 w-5 h-5 tablet:mt-2" />
+          <h1 className="text-slate-800 text-[18px] ml-1 font-semibold tablet:text-[25px]">
             No 6, Trench Avenue, Pluto.
           </h1>
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-3 p-10 mt-4">
+      <header className="hidden tablet:block bg-slate-900 w-screen h-16 fixed top-0 left-0 z-10">
+        <div className="flex flex-row items-center justify-between">
+          <Link to="/">
+            <button className="text-white text-2xl font-semibold p-4 ml-5">
+              EVENT APP
+            </button>
+          </Link>
+
+          <nav className="w-[50%] flex flex-row justify-evenly items-center">
+            <Link to="/events">
+              <button className="text-center text-white text-[12px]">
+                <RiRadioFill className="h-6 w-6 m-auto" />
+                Events
+              </button>
+            </Link>
+
+            <Link to="/service">
+              <button className="text-center text-white text-[12px]">
+                <PiUsersThreeFill className="h-6 w-6 m-auto" />
+                Services
+              </button>
+            </Link>
+
+            <Link to="/profile">
+              <button className="text-center text-white text-[12px]">
+                <FaRegUser className="h-6 w-6 m-auto" />
+                Profile
+              </button>
+            </Link>
+          </nav>
+        </div>
+      </header>
+
+      <div className="grid grid-cols-2 gap-3 p-10 mt-4 tablet:mt-20 tablet:grid-cols-3 tablet:p-16 tablet:justify-items-center">
         <div className="grid items-center">
           <img src={img6} alt="" />
           <Link to="/entertainment">
@@ -98,7 +131,7 @@ const Service = () => {
         </div>
       </div>
 
-      <footer className="bg-slate-900 w-screen h-16 p-8 fixed left-0 bottom-0 flex flex-row justify-between items-center">
+      <footer className="bg-slate-900 w-screen h-16 p-8 fixed left-0 bottom-0 flex flex-row justify-between items-center tablet:hidden">
         <Link to="/">
           <button className="text-center text-white text-[12px]">
             <IoMdHome className="h-6 w-6 m-auto" />

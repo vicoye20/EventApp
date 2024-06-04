@@ -1,6 +1,7 @@
 import axios from "axios";
 import { React, useState, useEffect } from "react";
 import { FaLocationDot } from "react-icons/fa6";
+import { SiParamountplus } from "react-icons/si";
 import { GoSearch } from "react-icons/go";
 import { IoMdHome } from "react-icons/io";
 import { RiRadioFill } from "react-icons/ri";
@@ -110,7 +111,7 @@ const Home = () => {
         </div>
       </div>
 
-      <header className="hidden tablet:block bg-slate-500 w-screen h-16 fixed top-0 left-0 z-10">
+      <header className="hidden tablet:block bg-slate-900 w-screen h-16 fixed top-0 left-0 z-10">
         <div className="flex flex-row items-center justify-between">
           <Link to="/">
             <button className="text-white text-2xl font-semibold p-4 ml-5">
@@ -150,38 +151,37 @@ const Home = () => {
       <div>
         {filteredEvent.map((event) => (
           <div key={event._id}>
-            
-              <div className="mt-3 tablet:w-[50%] m-auto">
-                <Link to={`events/${event._id}`}>
+            <div className="mt-3 tablet:w-[50%] m-auto">
+              <Link to={`events/${event._id}`}>
                 <img
                   className="w-full h-32 rounded-[20px] tablet:h-72 m-auto tablet:rounded-[5px] mt-5 object-cover"
                   src={event.picture}
                   alt=""
                 />
-                </Link>
-              </div>
+              </Link>
+            </div>
 
-              <div className="flex flex-row items-center justify-between w-full tablet:justify-center">
+            <div className="flex flex-row items-center justify-between w-full tablet:justify-center">
+              <Link to={`events/${event._id}`}>
                 <p className="text-[15px] text-slate-900 font-bold tablet:text-[30px] tablet:font-semibold tablet:underline">
                   {event.eventName}
                 </p>
+              </Link>
+              <p className="text-[15px] text-slate-900 font-bold tablet:hidden">
+                {event.amount}
+              </p>
+            </div>
 
-                <p className="text-[15px] text-slate-900 font-bold tablet:hidden">
-                  {event.amount}
-                </p>
-              </div>
+            <div className="flex flex-row items-center justify-between w-full tablet:hidden">
+              <p className="text-[15px] text-slate-900 flex items-center">
+                <FaLocationDot className="items-center text-red-700" />
+                {event.location}
+              </p>
 
-              <div className="flex flex-row items-center justify-between w-full tablet:hidden">
-                <p className="text-[15px] text-slate-900 flex items-center">
-                  <FaLocationDot className="items-center text-red-700" />
-                  {event.location}
-                </p>
-
-                <p className="text-[15px] text-slate-900 tablet:text-[18px]">
-                  {event.time}
-                </p>
-              </div>
-            
+              <p className="text-[15px] text-slate-900 tablet:text-[18px]">
+                {event.time}
+              </p>
+            </div>
           </div>
         ))}
       </div>
@@ -191,7 +191,7 @@ const Home = () => {
           Upcoming Events
         </h1>
         <Link to="/events">
-            <button className="flex flex-row items-center gap-1 text-slate-800 tablet:mt-2 tablet:border tablet:text-[20px]">
+          <button className="flex flex-row items-center gap-1 text-slate-800 tablet:mt-2 tablet:text-[20px]">
             See all <FaRegPlusSquare />
           </button>
         </Link>
@@ -224,35 +224,38 @@ const Home = () => {
         </div>
       </Swiper>
 
-      <div className="hidden tablet:flex gap-3 -mt-2">
-          {filteredEvents.map((allEvents) => (
-              <div key={allEvents._id}>
-                <Link to={`/events/${allEvents._id}`}>
-                  
-                    <img
-                      className="h-52 w-80 rounded-lg mt-5"
-                      src={allEvents.picture}
-                      alt=""
-                    />
-                 
-                  <p className="tablet:text-[20px] text-slate-900 font-semibold">
-                    {allEvents.eventName}
-                  </p>
-                  <p className="tablet:flex flex-row items-center text-[16px] text-slate-900">
-                    <FaLocationDot className="items-center text-red-700" />
-                    {allEvents.location}
-                  </p>
-                </Link>
-              </div>
-          ))}
-        </div>
+      <div className="hidden tablet:flex gap-8 -mt-2">
+        {filteredEvents.map((allEvents) => (
+          <div key={allEvents._id}>
+            <Link to={`/events/${allEvents._id}`}>
+              <img
+                className="h-52 w-80 rounded-lg mt-5"
+                src={allEvents.picture}
+                alt=""
+              />
+              </Link>
+
+              <div className="flex flex-col w-32">
+              <Link to={`/events/${allEvents._id}`}>
+                <p className="tablet:text-[18px] text-slate-900 font-semibold">
+                  {allEvents.eventName}
+                </p>
+                <p className="tablet:flex flex-row items-center text-[16px] text-slate-900">
+                  <SiParamountplus className="items-center text-red-700" />
+                  {allEvents.amount}
+                </p>
+            </Link>
+            </div>
+          </div>
+        ))}
+      </div>
 
       <div className="flex flex-row justify-between w-full mt-6 tablet:flex-col tablet:mt-10 items-center">
         <h1 className="text-[20px] font-semibold text-slate-800 tablet:text-4xl">
           Discover Venues
         </h1>
         <Link to="/venues">
-          <button className="flex flex-row items-center gap-1 text-slate-800 tablet:mt-2 tablet:border tablet:text-[20px]">
+          <button className="flex flex-row items-center gap-1 text-slate-800 tablet:mt-1 tablet:text-[20px]">
             See all <FaRegPlusSquare />
           </button>
         </Link>
@@ -286,30 +289,32 @@ const Home = () => {
         </div>
       </Swiper>
 
-      <div className="hidden tablet:grid grid-cols-3 justify-around items-center gap-2">
-          {filterEvents.map((disEvent) => (
-              <div key={disEvent._id}>
-                <Link to={`/venues/${disEvent._id}`}>
-                  <div className="flex flex-row w-full h-32 mt-4">
-                    <img
-                      className="h-52 w-80 rounded-lg mx-auto"
-                      src={disEvent.picture}
-                      alt=""
-                    />
-                  </div>
+      <div className="hidden tablet:flex gap-8 -mt-2">
+        {filterEvents.map((disEvent) => (
+          <div key={disEvent._id}>
+            <Link to={`/venues/${disEvent._id}`}>        
+                <img
+                  className="h-52 w-80 rounded-lg mx-auto mt-4"
+                  src={disEvent.picture}
+                  alt=""
+                />        
+            </Link>
 
-                  <p className="tablet:text-[20px] text-slate-900 font-semibold mt-20 ml-16">
-                    {disEvent.eventName}
-                  </p>
-                  <p className="tablet:flex flex-row items-center text-[16px] text-slate-900 ml-16">
-                    <FaLocationDot className="items-center text-red-700" />
-                    {disEvent.location}
-                  </p>
-                </Link>
-              </div>
-           
-          ))}
-        </div>
+            <div className="flex flex-col w-32">
+              <Link to={`/venues/${disEvent._id}`}>
+                <p className="tablet:text-[18px] text-slate-900 font-semibold">
+                  {disEvent.eventName}
+                </p>
+
+                <p className="tablet:flex flex-row items-center text-[15px] text-slate-900">
+                  <SiParamountplus className="items-center text-red-700" />
+                  {disEvent.amount}
+                </p>
+              </Link>
+            </div>
+          </div>
+        ))}
+      </div>
 
       <footer className="bg-slate-900 w-screen h-16 p-8 fixed left-0 bottom-0 flex flex-row justify-between items-center z-10 tablet:hidden">
         <Link to="/">

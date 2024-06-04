@@ -35,56 +35,86 @@ const Events = () => {
     event.eventName.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+
   return (
-    <div className="p-7 w-screen h-full mb-11">
-      <div className="fixed top-0 left-0 w-screen bg-white p-6">
-        <div className="flex flex-row">
-          <FaLocationDot className="text-red-600 mt-1 w-5 h-5" />{" "}
-          <h1 className="text-black text-[18px] ml-1">
+    <div className="p-7 w-screen h-full mb-11 tablet:mb-0 tablet:bg-slate-300">
+      <header className="hidden tablet:block bg-slate-900 w-screen h-16 fixed top-0 left-0 z-10">
+        <div className="flex flex-row items-center justify-between">
+          <Link to="/">
+            <button className="text-white text-2xl font-semibold p-4 ml-5">
+              EVENT APP
+            </button>
+          </Link>
+
+          <nav className="w-[50%] flex flex-row justify-evenly items-center">
+            <Link to="/events">
+              <button className="text-center text-white text-[12px]">
+                <RiRadioFill className="h-6 w-6 m-auto" />
+                Events
+              </button>
+            </Link>
+
+            <Link to="/service">
+              <button className="text-center text-white text-[12px]">
+                <PiUsersThreeFill className="h-6 w-6 m-auto" />
+                Services
+              </button>
+            </Link>
+
+            <Link to="/profile">
+              <button className="text-center text-white text-[12px]">
+                <FaRegUser className="h-6 w-6 m-auto" />
+                Profile
+              </button>
+            </Link>
+          </nav>
+        </div>
+      </header>
+
+      <div className="fixed top-0 left-0 w-screen bg-white p-6 tablet:bg-slate-300">
+        <div className="flex flex-row tablet:justify-center">
+          <FaLocationDot className="text-red-600 mt-1 w-5 h-5 tablet:mt-2" />
+          <h1 className="text-black text-[18px] ml-1 tablet:text-[25px]">
             No 6, Trench Avenue, Pluto.
           </h1>
         </div>
 
-        <div className="relative flex items-center mt-3">
-          <GoSearch className="absolute left-4 text-slate-900" />
+        <div className="relative flex items-center mt-3 tablet:justify-center">
+          <GoSearch className="absolute left-4 text-slate-900 tablet:hidden" />
           <input
             type="text"
             placeholder="Search"
             value={searchQuery}
             onChange={handleSearch}
-            className="border-2 rounded-md bg-slate-200 pl-10 p-2 w-full placeholder:text-[18px] placeholder:text-slate-600 focus:outline-none"
+            className="border-2 rounded-md bg-slate-200 pl-10 p-2 w-full placeholder:text-[18px] placeholder:text-slate-600 focus:outline-none tablet:w-[50%] tablet:bg-white"
           />
         </div>
       </div>
 
-      <div className="flex flex-col gap-4 mt-[7rem]">
+      <div className="flex flex-col gap-4 mt-[7rem] tablet:grid tablet:grid-cols-3">
         {filteredEvents.map((event) => (
-          
-            <div>
-              
-              <img src={event.picture} className="w-full h-32 rounded-xl" />
+          <div>
+            <img src={event.picture} className="w-full h-32 rounded-xl tablet:w-[88%] tablet:h-56 m-auto tablet:mt-2" />
 
-              <div className="flex flex-row justify-between items-center w-full">
-                <h1 className="text-black text-[14px]">{event.eventName}</h1>
-                <p className="text-slate-800 text-[14px]">{event.amount}</p>
-              </div>
-
-              <div className="flex flex-row items-center justify-between w-full">
-                <p className="flex flex-row items-center text-[13px] text-slate-900">
-                  <FaLocationDot className="items-center text-red-700" />
-                  {event.location}
-                </p>
-                <p className="text-[13px] text-slate-900">{event.date}</p>
-              </div>
-              
-              <p className="text-[13px] text-slate-900">{event.time}</p>
-              
+            <div className="flex flex-row justify-between items-center w-full tablet:font-semibold tablet:w-[88%] tablet:m-auto">
+              <h1 className="text-black text-[14px]">{event.eventName}</h1>
+              <p className="text-slate-800 text-[14px] tablet:hidden">{event.amount}</p>
             </div>
-          
+
+            <div className="flex flex-row items-center justify-between w-full tablet:font-semibold tablet:w-[88%] tablet:m-auto">
+              <p className="flex flex-row items-center text-[13px] text-slate-900">
+                <FaLocationDot className="items-center text-red-700" />
+                {event.location}
+              </p>
+              <p className="text-[13px] text-slate-900 tablet:hidden">{event.date}</p>
+            </div>
+
+            <p className="text-[13px] text-slate-900 tablet:hidden">{event.time}</p>
+          </div>
         ))}
       </div>
 
-      <footer className="bg-slate-900 w-screen h-16 p-8 mt-16 fixed left-0 bottom-0 z-0 flex flex-row justify-between items-center">
+      <footer className="bg-slate-900 w-screen h-16 p-8 mt-16 fixed left-0 bottom-0 z-0 flex flex-row justify-between items-center tablet:hidden">
         <Link to="/">
           <button className="text-center text-white text-[12px]">
             <IoMdHome className="h-6 w-6 m-auto" />
