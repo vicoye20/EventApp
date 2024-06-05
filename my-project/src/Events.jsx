@@ -45,7 +45,7 @@ const Events = () => {
             </button>
           </Link>
 
-          <nav className="w-[50%] flex flex-row justify-evenly items-center">
+          <nav className="w-[40%] flex flex-row justify-evenly items-center">
             <Link to="/events">
               <button className="text-center text-white text-[12px]">
                 <RiRadioFill className="h-6 w-6 m-auto" />
@@ -66,6 +66,9 @@ const Events = () => {
                 Profile
               </button>
             </Link>
+
+            <button className="text-white font-semibold">Sign Out</button>
+
           </nav>
         </div>
       </header>

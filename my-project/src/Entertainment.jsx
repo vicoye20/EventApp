@@ -172,7 +172,7 @@ const Entertainment = () => {
               <img
                 src={dj.picture}
                 alt=""
-                className="h-40 w-44 rounded-xl tablet:w-80 tablet:h-52"
+                className="h-40 w-44 rounded-md tablet:w-80 tablet:h-52"
               />
             </Link>
 
@@ -188,7 +188,7 @@ const Entertainment = () => {
               <img
                 src={comedy.picture}
                 alt=""
-                className="h-40 w-44 rounded-xl tablet:w-80 tablet:h-52"
+                className="h-40 w-44 rounded-md tablet:w-80 tablet:h-52"
               />
             </Link>
 
@@ -204,7 +204,7 @@ const Entertainment = () => {
               <img
               src={dancer.picture}
               alt=""
-              className="h-40 w-44 rounded-xl tablet:w-80 tablet:h-52"
+              className="h-40 w-44 rounded-md tablet:w-80 tablet:h-52"
             />
             </Link>
             
@@ -223,7 +223,7 @@ const Entertainment = () => {
               <img
               src={music.picture}
               alt=""
-              className="h-40 w-44 rounded-xl tablet:w-80 tablet:h-52"
+              className="h-40 w-44 rounded-md tablet:w-80 tablet:h-52"
             />
             </Link>
             
@@ -239,7 +239,7 @@ const Entertainment = () => {
               <img
                 src={sound.picture}
                 alt=""
-                className="h-40 w-44 rounded-xl tablet:w-80 tablet:h-52"
+                className="h-40 w-44 rounded-md tablet:w-80 tablet:h-52"
               />
             </Link>
 
@@ -255,7 +255,7 @@ const Entertainment = () => {
              <img
               src={mc.picture}
               alt=""
-              className="h-40 w-44 rounded-xl tablet:w-80 tablet:h-52"
+              className="h-40 w-44 rounded-md tablet:w-80 tablet:h-52"
             />
             </Link>
            

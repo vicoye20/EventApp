@@ -1,11 +1,10 @@
-import {React, useState, useEffect} from "react";
+import { React, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { GoSearch } from "react-icons/go";
 import axios from "axios";
 
 const Comedian = () => {
-
   const [comedian, setComedian] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -22,11 +21,11 @@ const Comedian = () => {
       }
     };
     comedian();
-  },[])
+  }, []);
 
   const handleSearch = (e) => {
     setSearchQuery(e.target.value);
-  }
+  };
 
   const filtercomedian = comedian.filter((comedian) =>
     comedian.name.toLowerCase().includes(searchQuery.toLowerCase())
@@ -92,14 +91,22 @@ const Comedian = () => {
       </div>
 
       <div className="mt-36 tablet:mt-44">
-          {filtercomedian.map((comedian) => (
-            <div key={comedian._id}>
-              <img src={comedian.picture} alt="" className="h-40 w-[50%] rounded-2xl tablet:w-80 tablet:h-52"/>
-              <p className="font-semibold text-[15px] text-slate-800 tablet:text-[20px]">{comedian.name}</p>
-            </div>
-          ))}
+        {filtercomedian.map((comedian) => (
+          <div key={comedian._id}>
+            <Link to={`/entertainment/comedian/${comedian._id}`}>
+              <img
+              src={comedian.picture}
+              alt=""
+              className="h-40 w-[50%] rounded-2xl tablet:w-80 tablet:h-52"
+            />
+            </Link>
+            
+            <p className="font-semibold text-[15px] text-slate-800 tablet:text-[20px]">
+              {comedian.name}
+            </p>
+          </div>
+        ))}
       </div>
-
     </div>
   );
 };
