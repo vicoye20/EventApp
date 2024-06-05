@@ -163,6 +163,19 @@ App.get("/musics",async(req,res)=>{
     }
 })
 
+// to get data from music
+
+App.get(`/musics/:id`,async(req,res) => {
+    const {id} = req.params
+    try {
+        const music = await MusicModel.findById(id)
+        res.status(200).json(music)
+    }
+     catch (error) {
+        res.status(500).json({error:error.message})
+    }
+})
+
 // post djs task
 
 App.post("/disc",async(req,res)=>{
@@ -182,6 +195,19 @@ App.get("/discs",async(req,res)=>{
     console.log("posted")
     try {
         const discs = await DiscModel.find(req.body)
+        res.status(200).json(discs)
+    }
+     catch (error) {
+        res.status(500).json({error:error.message})
+    }
+})
+
+// to get each data from djs
+
+App.get(`/discs/:id`,async(req,res) => {
+    const {id} = req.params
+    try {
+        const discs = await DiscModel.findById(id)
         res.status(200).json(discs)
     }
      catch (error) {
@@ -215,6 +241,19 @@ App.get("/dancers",async (req,res) => {
     }
 })
 
+// get each data from dancers
+
+App.get(`/dancers/:id`,async(req,res) => {
+    const {id} = req.params
+    try {
+        const dancers = await DancerModel.findById(id)
+        res.status(200).json(dancers)
+    }
+     catch (error) {
+        res.status(500).json({error:error.message})
+    }
+})
+
 // post comedian tasks
 
 App.post("/comedy", async (req,res) => {
@@ -234,6 +273,19 @@ App.get("/comedians",async(req,res)=>{
     console.log("posted")
     try {
         const comedians = await ComedianModel.find(req.body)
+        res.status(200).json(comedians)
+    }
+     catch (error) {
+        res.status(500).json({error:error.message})
+    }
+})
+
+// get each data from comedian
+
+App.get(`/comedians/:id`,async(req,res) => {
+    const {id} = req.params
+    try {
+        const comedians = await ComedianModel.findById(id)
         res.status(200).json(comedians)
     }
      catch (error) {
@@ -268,6 +320,19 @@ App.get("/sounds",async(req,res)=>{
     }
 })
 
+// get each data from sound
+
+App.get(`/sounds/:id`,async(req,res) => {
+    const {id} = req.params
+    try {
+        const sounds = await SoundModel.findById(id)
+        res.status(200).json(sounds)
+    }
+     catch (error) {
+        res.status(500).json({error:error.message})
+    }
+})
+
 // post mcs task
 
 App.post("/mc", async (req,res) => {
@@ -287,6 +352,19 @@ App.get("/mcs",async(req,res)=>{
     console.log("posted")
     try {
         const mcs = await McsModel.find(req.body)
+        res.status(200).json(mcs)
+    }
+     catch (error) {
+        res.status(500).json({error:error.message})
+    }
+})
+
+// get each data from mcs
+
+App.get(`/mcs/:id`,async(req,res) => {
+    const {id} = req.params
+    try {
+        const mcs = await McsModel.findById(id)
         res.status(200).json(mcs)
     }
      catch (error) {

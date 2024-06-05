@@ -37,6 +37,12 @@ import AdminPhoto from './photography/AdminPhoto';
 import Photography from './photography/Photography';
 import AdminVideo from './videography/AdminVideo';
 import Video from './videography/Video';
+import DjDynamic from './dynamic/DjDynamic';
+import ComedyDynamic from './dynamic/ComedyDynamic';
+import SoundDynamic from './dynamic/SoundDynamic';
+import MCsDynamic from './dynamic/MCsDynamic';
+import MusicDynamic from './dynamic/MusicDynamic';
+import DancersDynamic from './dynamic/DancersDynamic';
 
 
 const App = () => {
@@ -69,6 +75,12 @@ const App = () => {
                   <Route path='/events/:id' element={<Details/>}/>
                   <Route path='/:id' element={<Details3/>}/>
                   <Route path='/venues/:id' element={<Details2/>}/>
+                  <Route path='/entertainment/djs/:id' element={<DjDynamic/>}/>
+                  <Route path='/entertainment/comedian/:id' element={<ComedyDynamic/>}/>
+                  <Route path='/entertainment/sounds/:id' element={<SoundDynamic/>}/>
+                  <Route path='/entertainment/mcs/:id' element={<MCsDynamic/>}/>
+                  <Route path='/entertainment/musics/:id' element={<MusicDynamic/>}/>
+                  <Route path='/entertainment/dancers/:id' element={<DancersDynamic/>}/>
                   <Route path='/entertainment' element={<Entertainment/>}/>
 
                   <Route path='/entertainment/djs' element={<DJs/>} />

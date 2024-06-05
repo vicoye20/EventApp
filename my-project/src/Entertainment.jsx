@@ -168,7 +168,14 @@ const Entertainment = () => {
       <div className="grid grid-cols-2 justify-items-center gap-2 mt-36 w-full mx-auto tablet:grid-cols-3 tablet:mt-44 tablet:justify-items-center tablet:gap-4">
         {filterdj.map((dj) => (
           <div key={dj._id}>
-            <img src={dj.picture} alt="" className="h-40 w-44 rounded-xl tablet:w-80 tablet:h-52" />
+            <Link to={`/entertainment/djs/${dj._id}`}>
+              <img
+                src={dj.picture}
+                alt=""
+                className="h-40 w-44 rounded-xl tablet:w-80 tablet:h-52"
+              />
+            </Link>
+
             <button className="font-semibold text-[15px] text-slate-800 tablet:text-[18px]">
               {dj.name}
             </button>
@@ -177,7 +184,14 @@ const Entertainment = () => {
 
         {filtercomedy.map((comedy) => (
           <div key={comedy._id}>
-            <img src={comedy.picture} alt="" className="h-40 w-44 rounded-xl tablet:w-80 tablet:h-52"/>
+            <Link to={`/entertainment/comedian/${comedy._id}`}>
+              <img
+                src={comedy.picture}
+                alt=""
+                className="h-40 w-44 rounded-xl tablet:w-80 tablet:h-52"
+              />
+            </Link>
+
             <button className="font-semibold text-[15px] text-slate-800 tablet:text-[18px]">
               {comedy.name}
             </button>
@@ -186,7 +200,14 @@ const Entertainment = () => {
 
         {filterdancer.map((dancer) => (
           <div key={dancer._id}>
-            <img src={dancer.picture} alt="" className="h-40 w-44 rounded-xl tablet:w-80 tablet:h-52" />
+            <Link to={`/entertainment/dancers/${dancer._id}`}>
+              <img
+              src={dancer.picture}
+              alt=""
+              className="h-40 w-44 rounded-xl tablet:w-80 tablet:h-52"
+            />
+            </Link>
+            
             <button
               className="font-semibold text-[15px] 
             text-slate-800 tablet:text-[18px]"
@@ -198,7 +219,14 @@ const Entertainment = () => {
 
         {filtermusic.map((music) => (
           <div key={music._id}>
-            <img src={music.picture} alt="" className="h-40 w-44 rounded-xl tablet:w-80 tablet:h-52" />
+            <Link to={`/entertainment/musics/${music._id}`}>
+              <img
+              src={music.picture}
+              alt=""
+              className="h-40 w-44 rounded-xl tablet:w-80 tablet:h-52"
+            />
+            </Link>
+            
             <button className="font-semibold text-[15px] text-slate-800 tablet:text-[18px]">
               {music.name}
             </button>
@@ -207,7 +235,14 @@ const Entertainment = () => {
 
         {filtersound.map((sound) => (
           <div key={sound._id}>
-            <img src={sound.picture} alt="" className="h-40 w-44 rounded-xl tablet:w-80 tablet:h-52" />
+            <Link to={`/entertainment/sounds/${sound._id}`}>
+              <img
+                src={sound.picture}
+                alt=""
+                className="h-40 w-44 rounded-xl tablet:w-80 tablet:h-52"
+              />
+            </Link>
+
             <button className="font-semibold text-[15px] text-slate-800 tablet:text-[18px]">
               {sound.name}
             </button>
@@ -216,7 +251,14 @@ const Entertainment = () => {
 
         {filtermc.map((mc) => (
           <div key={mc._id}>
-            <img src={mc.picture} alt="" className="h-40 w-44 rounded-xl tablet:w-80 tablet:h-52" />
+            <Link to={`/entertainment/mcs/${mc._id}`}>
+             <img
+              src={mc.picture}
+              alt=""
+              className="h-40 w-44 rounded-xl tablet:w-80 tablet:h-52"
+            />
+            </Link>
+           
             <button className="font-semibold text-[15px] text-slate-800 tablet:text-[18px]">
               {mc.name}
             </button>

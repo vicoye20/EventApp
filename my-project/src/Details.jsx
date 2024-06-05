@@ -8,7 +8,6 @@ import { FaRegClock } from "react-icons/fa6";
 import { FaLocationDot } from "react-icons/fa6";
 
 const Details = () => {
-  // const params = useParams();
   const { id } = useParams();
   const [event, setEvent] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -81,66 +80,63 @@ const Details = () => {
         </div>
 
         <h1 className="text-[20px] text-slate-800 mt-3 font-semibold">
-        Descriptions
-      </h1>
-      <p className="text-slate-800 text-[16px]">
-        {event.descriptionForRegular}
-      </p>
+          Descriptions
+        </h1>
+        <p className="text-slate-800 text-[16px]">
+          {event.descriptionForRegular}
+        </p>
 
-      <button className="m-auto w-full h-12 bg-blue-700 rounded-2xl text-white font-semibold mt-7">
-        {event.amount}
-      </button>
-
+        <button className="m-auto w-full h-12 bg-blue-700 rounded-2xl text-white font-semibold mt-7">
+          {event.amount}
+        </button>
       </div>
 
-      <div key={event._id} className="hidden tablet:flex flex-row justify-evenly">
+      <div
+        key={event._id}
+        className="hidden tablet:flex flex-row justify-evenly"
+      >
         <div className="w-[35%] h-66">
           <img
-          className="w-[100%] h-66 mt-6 rounded-[15px]"
-          src={event.picture}
-          alt=""
-        />
+            className="w-[100%] h-66 mt-6 rounded-[15px]"
+            src={event.picture}
+            alt=""
+          />
         </div>
 
         <div className="w-[50%] h-66">
-           <div className="flex flex-row items-center mt-4">
-          <SlCalender className="text-blue-700" />
-          <p className="text-slate-700 font-semibold text-[19px] ml-3">
-            {event.date}
+          <div className="flex flex-row items-center mt-4">
+            <SlCalender className="text-blue-700" />
+            <p className="text-slate-700 font-semibold text-[19px] ml-3">
+              {event.date}
+            </p>
+          </div>
+
+          <div className="flex flex-row mt-1 items-center">
+            <FaRegClock className="text-blue-700" />
+            <p className="text-slate-700 font-semibold text-[19px] ml-3">
+              {event.time}
+            </p>
+          </div>
+
+          <div className="flex flex-row items-center mt-1">
+            <FaLocationDot className="text-red-700" />
+            <p className="text-slate-700 font-semibold text-[19px] ml-3">
+              {event.location}
+            </p>
+          </div>
+
+          <h1 className="text-[20px] text-slate-800 mt-3 font-semibold">
+            Descriptions
+          </h1>
+          <p className="text-slate-800 text-[19px]">
+            {event.descriptionForRegular}
           </p>
+
+          <button className="m-auto w-full h-12 bg-blue-700 rounded-2xl text-white font-semibold mt-10">
+            {event.amount}
+          </button>
         </div>
-
-        <div className="flex flex-row mt-1 items-center">
-          <FaRegClock className="text-blue-700" />
-          <p className="text-slate-700 font-semibold text-[19px] ml-3">
-            {event.time}
-          </p>
-        </div>
-
-        <div className="flex flex-row items-center mt-1">
-          <FaLocationDot className="text-red-700" />
-          <p className="text-slate-700 font-semibold text-[19px] ml-3">
-            {event.location}
-          </p>
-        </div>
-        
-        <h1 className="text-[20px] text-slate-800 mt-3 font-semibold">
-        Descriptions
-      </h1>
-      <p className="text-slate-800 text-[19px]">
-        {event.descriptionForRegular}
-      </p>
-
-      <button className="m-auto w-full h-12 bg-blue-700 rounded-2xl text-white font-semibold mt-10">
-        {event.amount}
-      </button>
-        </div>
-
-       
-
       </div>
-
-      
     </div>
   );
 };
