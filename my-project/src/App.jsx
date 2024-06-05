@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Routes, } from 'react-router-dom';
 import Home from './Home';
 import Events from './Events';
 import Profile from './Profile';
+import EditProfile from './EditProfile';
 import Service from './Service';
 import ChngKey from './ChngKey';
 import Gray from './Gray';
@@ -48,6 +49,7 @@ const App = () => {
                   <Route path='/' element={<Home/>}/>
                   <Route path='/events' element={<Events/>}/>
                   <Route path='/profile' element={<Profile/>}/>
+                  <Route path='/editprofile' element={<EditProfile/>}/>
                   <Route path='/service' element={<Service/>}/>
                   <Route path='/changePassword' element={<ChngKey/>}/>
 

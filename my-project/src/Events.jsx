@@ -102,17 +102,19 @@ const Events = () => {
             
 
             <div className="flex flex-row justify-between items-center w-full tablet:font-semibold tablet:w-[88%] tablet:m-auto">
-              <h1 className="text-black text-[14px]">{event.eventName}</h1>
-              <p className="text-slate-800 text-[14px] tablet:hidden">
+            <Link to={`/${event._id}`}><h1 className="text-black text-[14px]">{event.eventName}</h1></Link>
+              
+            <Link to={`/${event._id}`}><p className="text-slate-800 text-[14px] tablet:hidden">
                 {event.amount}
-              </p>
+              </p></Link>
             </div>
 
             <div className="flex flex-row items-center justify-between w-full tablet:font-semibold tablet:w-[88%] tablet:m-auto">
-              <p className="flex flex-row items-center text-[13px] text-slate-900">
+            <Link to={`/${event._id}`}> <p className="flex flex-row items-center text-[13px] text-slate-900">
                 <FaLocationDot className="items-center text-red-700" />
                 {event.location}
-              </p>
+              </p></Link>
+             
               <p className="text-[13px] text-slate-900 tablet:hidden">
                 {event.date}
               </p>

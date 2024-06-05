@@ -67,10 +67,6 @@ const Home = () => {
     setSearchQuery(e.target.value);
   };
 
-  const filteredEvent = event.filter((event) =>
-    event.eventName.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-
   const filteredEvents = allEvents.filter((event) =>
     event.eventName.toLowerCase().includes(searchQuery.toLowerCase())
   );
@@ -91,12 +87,15 @@ const Home = () => {
 
   return (
     <div className="p-7 w-screen h-full mb-11 tablet:bg-slate-300 tablet:w-full tablet:mb-0">
-      <div className="fixed top-0 left-0 w-screen bg-white p-6 tablet:hidden">
+      <div className="fixed top-0 left-0 w-screen z-10 bg-white p-6 tablet:hidden">
+        <div className="flex justify-between">
         <div className="flex flex-row">
           <FaLocationDot className="text-red-600 mt-1 w-5 h-5" />
           <h1 className="text-black text-[18px] ml-1">
             No 6, Trench Avenue, Pluto.
           </h1>
+        </div>
+        <button className="w-20 h-8 bg-red-700 font-semibold rounded-lg text-white">Sign Out</button>
         </div>
 
         <div className="relative flex items-center mt-3 w-full">
@@ -119,7 +118,7 @@ const Home = () => {
             </button>
           </Link>
 
-          <nav className="w-[50%] flex flex-row justify-evenly items-center">
+          <nav className="w-[40%] flex flex-row justify-around items-center">
             <Link to="/events">
               <button className="text-center text-white text-[12px]">
                 <RiRadioFill className="h-6 w-6 m-auto" />
@@ -140,16 +139,18 @@ const Home = () => {
                 Profile
               </button>
             </Link>
+
+            <button className="text-white font-semibold">Sign Out</button>
           </nav>
         </div>
       </header>
 
-      <h1 className="text-[20px] mt-24 font-semibold text-slate-800 tablet:text-center tablet:text-black tablet:text-4xl tablet:mt-16">
+      <h1 className="text-[20px] mt-28 font-semibold text-slate-800 tablet:text-center tablet:text-black tablet:text-4xl tablet:mt-16">
         Happening Now!!!
       </h1>
 
       <div>
-        {filteredEvent.map((event) => (
+        {event.map((event) => (
           <div key={event._id}>
             <div className="mt-3 tablet:w-[50%] m-auto">
               <Link to={`events/${event._id}`}>
@@ -191,7 +192,7 @@ const Home = () => {
           Upcoming Events
         </h1>
         <Link to="/events">
-          <button className="flex flex-row items-center gap-1 text-slate-800 tablet:mt-2 tablet:text-[20px]">
+          <button className="flex items-center gap-1 text-slate-800 tablet:hidden ">
             See all <FaRegPlusSquare />
           </button>
         </Link>
@@ -203,7 +204,7 @@ const Home = () => {
             <SwiperSlide>
               <div key={allEvents._id}>
                 <Link to={`/events/${allEvents._id}`}>
-                  <div className="flex flex-row w-full h-32 mt-4">
+                  <div className="flex flex-row w-full h-32 mt-3">
                     <img
                       className="flex flex-row h-32 w-40 rounded-lg"
                       src={allEvents.picture}
@@ -224,18 +225,18 @@ const Home = () => {
         </div>
       </Swiper>
 
-      <div className="hidden tablet:flex gap-8 -mt-2">
+      <div className="hidden tablet:flex gap-8">
         {filteredEvents.map((allEvents) => (
           <div key={allEvents._id}>
             <Link to={`/events/${allEvents._id}`}>
               <img
-                className="h-52 w-80 rounded-lg mt-5"
+                className="h-52 w-80 rounded-lg mt-9"
                 src={allEvents.picture}
                 alt=""
               />
-              </Link>
+            </Link>
 
-              <div className="flex flex-col w-32">
+            <div className="flex flex-col w-32">
               <Link to={`/events/${allEvents._id}`}>
                 <p className="tablet:text-[18px] text-slate-900 font-semibold">
                   {allEvents.eventName}
@@ -244,10 +245,18 @@ const Home = () => {
                   <SiParamountplus className="items-center text-red-700" />
                   {allEvents.amount}
                 </p>
-            </Link>
+              </Link>
             </div>
           </div>
         ))}
+      </div>
+
+      <div className="hidden tablet:flex justify-center mt-5">
+        <Link to="/events">
+          <button className="flex p-5 items-center gap-1 text-slate-800 tablet:mt-2 tablet:text-[20px] bg-white w-32 h-10 rounded-lg">
+            See all <FaRegPlusSquare />
+          </button>
+        </Link>
       </div>
 
       <div className="flex flex-row justify-between w-full mt-6 tablet:flex-col tablet:mt-10 items-center">
@@ -255,10 +264,10 @@ const Home = () => {
           Discover Venues
         </h1>
         <Link to="/venues">
-          <button className="flex flex-row items-center gap-1 text-slate-800 tablet:mt-1 tablet:text-[20px]">
+          <button className="flex items-center gap-1 text-slate-800">
             See all <FaRegPlusSquare />
           </button>
-        </Link>
+          </Link>
       </div>
 
       <Swiper slidesPerView={2.5} spaceBetween={10} className="tablet:hidden">
@@ -267,7 +276,7 @@ const Home = () => {
             <SwiperSlide>
               <div key={disEvent._id}>
                 <Link to={`/venues/${disEvent._id}`}>
-                  <div className="flex flex-row w-full h-32 mt-4">
+                  <div className="flex flex-row w-full h-32 mt-3">
                     <img
                       className="flex flex-row h-32 w-40 rounded-lg"
                       src={disEvent.picture}
@@ -289,15 +298,15 @@ const Home = () => {
         </div>
       </Swiper>
 
-      <div className="hidden tablet:flex gap-8 -mt-2">
+      <div className="hidden tablet:flex gap-8">
         {filterEvents.map((disEvent) => (
           <div key={disEvent._id}>
-            <Link to={`/venues/${disEvent._id}`}>        
-                <img
-                  className="h-52 w-80 rounded-lg mx-auto mt-4"
-                  src={disEvent.picture}
-                  alt=""
-                />        
+            <Link to={`/venues/${disEvent._id}`}>
+              <img
+                className="h-52 w-80 rounded-lg mx-auto mt-9"
+                src={disEvent.picture}
+                alt=""
+              />
             </Link>
 
             <div className="flex flex-col w-32">
@@ -315,6 +324,15 @@ const Home = () => {
           </div>
         ))}
       </div>
+
+        <div className="hidden tablet:flex justify-center mt-5">
+          <Link to="/venues">
+          <button className="flex p-5 items-center gap-1 text-slate-800 tablet:mt-2 tablet:text-[20px] bg-white w-32 h-10 rounded-lg">
+            See all <FaRegPlusSquare />
+          </button>
+        </Link>
+        </div>
+      
 
       <footer className="bg-slate-900 w-screen h-16 p-8 fixed left-0 bottom-0 flex flex-row justify-between items-center z-10 tablet:hidden">
         <Link to="/">

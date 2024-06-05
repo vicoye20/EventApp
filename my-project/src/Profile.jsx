@@ -42,13 +42,13 @@ const Profile = () => {
           </nav>
         </div>
       </header>
-      <h1 className="text-[20px] text-slate-700 font-semibold tablet:text-center tablet:mt-10 tablet:text-[38px]">Profile</h1>
+      <h1 className="text-[20px] text-slate-700 font-semibold tablet:text-center tablet:mt-10 tablet:text-[38px]">
+        Profile
+      </h1>
 
-      <div className="h-32 w-32 m-auto border-2 border-red-900 rounded-full mt-8 tablet:mt-2">
+      <div className="h-32 w-32 m-auto border-2 border-blue-700 rounded-full mt-8 tablet:mt-2"></div>
 
-      </div>
-
-      <h1 className="text-[20px] text-slate-900 font-semibold text-center mt-2">
+      <h1 className="text-[20px] text-blue-700 font-semibold text-center mt-2">
         Ayantoye David
       </h1>
 
@@ -62,11 +62,15 @@ const Profile = () => {
             <button className="h-8 w-8 bg-blue-300 rounded-md">
               <FaRegUser className="m-auto text-blue-600" />
             </button>
-            <p className=" text-slate-800 ml-3 tablet:text-[22px] tablet:font-semibold">My Profile</p>
+            <p className="font-semibold text-slate-800 ml-3 tablet:text-[22px] tablet:font-semibold">
+              My Profile
+            </p>
           </div>
+          <Link to='/editprofile'>
           <button>
             <PiGreaterThan className="tablet:h-8 w-8" />
           </button>
+          </Link>
         </div>
 
         <div className="flex flex-row justify-between items-center w-full p-6 -mt-8 tablet:w-[50%] tablet:m-auto tablet:-mt-5">
@@ -74,16 +78,23 @@ const Profile = () => {
             <button className="h-8 w-8 bg-red-200 rounded-md">
               <RiLockPasswordFill className="m-auto text-red-600" />
             </button>
-            <p className="ml-3 text-slate-800 tablet:text-[22px] tablet:font-semibold">Change Password</p>
+            <p className="font-semibold ml-3 text-slate-800 tablet:text-[22px] tablet:font-semibold">
+              Change Password
+            </p>
           </div>
 
           <Link to="/changePassword">
             <button className="">
-              <PiGreaterThan className="tablet:h-8 w-8"/>
+              <PiGreaterThan className="tablet:h-8 w-8" />
             </button>
           </Link>
         </div>
+
+        <div className="flex justify-center mt-12">
+          <button className="w-24 h-10 bg-blue-700 font-semibold rounded-lg text-white">Sign Out</button>
+        </div>
       </div>
+
 
       <footer className="bg-slate-900 w-screen h-16 p-8  fixed left-0 bottom-0 z-0 flex flex-row justify-between items-center tablet:hidden">
         <Link to="/">

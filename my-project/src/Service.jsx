@@ -59,8 +59,8 @@ const Service = () => {
 
       <div className="grid grid-cols-2 gap-3 p-10 mt-4 tablet:mt-20 tablet:grid-cols-3 tablet:p-16 tablet:justify-items-center">
         <div className="grid items-center">
-          <img src={img6} alt="" />
           <Link to="/entertainment">
+            <img src={img6} alt="" />
             <button
               className="text-[15px]
                 text-slate-900 font-semibold"
@@ -71,8 +71,8 @@ const Service = () => {
         </div>
 
         <div className="grid items-center">
-          <img src={img1} alt="" />
           <Link to="/venues">
+            <img src={img1} alt="" />
             <button
               className="text-[15px]
                 text-slate-900 font-semibold"
@@ -83,20 +83,20 @@ const Service = () => {
         </div>
 
         <div className="grid items-center">
-          <img src={img2} alt="" />
           <Link to="/securities">
+            <img src={img2} alt="" />
             <button
               className="text-[15px]
                 text-slate-900 font-semibold"
             >
-              Security Personal
+              Security Personnel
             </button>
           </Link>
         </div>
 
         <div className="grid items-center">
-          <img src={img3} alt="" />
           <Link to="/caterings">
+            <img src={img3} alt="" />
             <button
               className="text-[15px]
                 text-slate-900 font-semibold"
@@ -107,8 +107,8 @@ const Service = () => {
         </div>
 
         <div className="grid items-center">
-          <img src={img4} alt="" />
           <Link to="/photographies">
+            <img src={img4} alt="" />
             <button
               className="text-[15px]
                 text-slate-900 font-semibold"
@@ -119,8 +119,8 @@ const Service = () => {
         </div>
 
         <div className="grid items-center">
-          <img src={img5} alt="" />
           <Link to="/videographies">
+            <img src={img5} alt="" />
             <button
               className="text-[15px]
                 text-slate-900 font-semibold"
