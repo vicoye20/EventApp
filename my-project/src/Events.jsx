@@ -94,27 +94,33 @@ const Events = () => {
         {filteredEvents.map((event) => (
           <div>
             <Link to={`/${event._id}`}>
-            <img
-              src={event.picture}
-              className="w-full h-32 rounded-xl tablet:w-[88%] tablet:h-56 m-auto tablet:mt-2"
-            />
+              <img
+                src={event.picture}
+                className="w-full h-32 rounded-xl tablet:w-[88%] tablet:h-56 m-auto tablet:mt-2"
+              />
             </Link>
-            
 
             <div className="flex flex-row justify-between items-center w-full tablet:font-semibold tablet:w-[88%] tablet:m-auto">
-            <Link to={`/${event._id}`}><h1 className="text-black text-[14px]">{event.eventName}</h1></Link>
-              
-            <Link to={`/${event._id}`}><p className="text-slate-800 text-[14px] tablet:hidden">
-                {event.amount}
-              </p></Link>
+              <Link to={`/${event._id}`}>
+                <h1 className="text-black text-[14px]">{event.eventName}</h1>
+              </Link>
+
+              <Link to={`/${event._id}`}>
+                <p className="text-slate-800 text-[14px] tablet:hidden">
+                  {event.amount}
+                </p>
+              </Link>
             </div>
 
             <div className="flex flex-row items-center justify-between w-full tablet:font-semibold tablet:w-[88%] tablet:m-auto">
-            <Link to={`/${event._id}`}> <p className="flex flex-row items-center text-[13px] text-slate-900">
-                <FaLocationDot className="items-center text-red-700" />
-                {event.location}
-              </p></Link>
-             
+              <Link to={`/${event._id}`}>
+                {" "}
+                <p className="flex flex-row items-center text-[13px] text-slate-900">
+                  <FaLocationDot className="items-center text-red-700" />
+                  {event.location}
+                </p>
+              </Link>
+
               <p className="text-[13px] text-slate-900 tablet:hidden">
                 {event.date}
               </p>

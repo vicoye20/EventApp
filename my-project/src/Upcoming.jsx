@@ -38,8 +38,7 @@ const Upcoming = () => {
 
   return (
     <div className="p-7 w-screen h-full mb-12 tablet:mb-0 tablet:bg-slate-300 tablet:h-screen">
-
-<header className="hidden tablet:block bg-slate-900 w-screen h-16 fixed top-0 left-0 z-10">
+      <header className="hidden tablet:block bg-slate-900 w-screen h-16 fixed top-0 left-0 z-10">
         <div className="flex flex-row items-center justify-between">
           <Link to="/">
             <button className="text-white text-2xl font-semibold p-4 ml-5">
@@ -85,12 +84,14 @@ const Upcoming = () => {
         </div>
 
         <Link to="/">
-            <button className="hidden tablet:block">
-              <FaArrowLeftLong />
-            </button>
-          </Link>
+          <button className="hidden tablet:block">
+            <FaArrowLeftLong />
+          </button>
+        </Link>
 
-        <h1 className="hidden tablet:block text-center text-[25px] font-semibold mt-10">Venues</h1>
+        <h1 className="hidden tablet:block text-center text-[25px] font-semibold mt-10">
+          Venues
+        </h1>
 
         <div className="relative flex items-center mt-2 w-full tablet:justify-center">
           <GoSearch className="absolute left-4 text-slate-900 tablet:hidden" />
@@ -108,29 +109,35 @@ const Upcoming = () => {
         {filteredEvents.map((event) => (
           <div key={event._id}>
             <div>
-            <Link to={`/venues/${event._id}`}>
-              <img
-                className="h-40 w-full rounded-xl"
-                src={event.picture}
-                alt=""
-              />
-            </Link>
-              
+              <Link to={`/venues/${event._id}`}>
+                <img
+                  className="h-40 w-full rounded-xl"
+                  src={event.picture}
+                  alt=""
+                />
+              </Link>
             </div>
 
             <div className="flex flex-row justify-between">
-              <p className="text-slate-800 font-semibold text-[16px] ml-1">
-                {event.eventName}
-              </p>
-              <p className="text-slate-800 font-semibold text-[16px]">
-                {event.amount}
-              </p>
+              <Link to={`/venues/${event._id}`}>
+                <p className="text-slate-800 font-semibold text-[16px] ml-1">
+                  {event.eventName}
+                </p>
+              </Link>
+
+              <Link to={`/venues/${event._id}`}>
+                <p className="text-slate-800 font-semibold text-[16px]">
+                  {event.amount}
+                </p>
+              </Link>
             </div>
 
-            <p className="flex flex-row items-center text-slate-800 text-[14px]">
-              <FaLocationDot className="text-red-700" />
-              {event.location}
-            </p>
+            <Link to={`/venues/${event._id}`}>
+              <p className="flex flex-row items-center text-slate-800 text-[14px]">
+                <FaLocationDot className="text-red-700" />
+                {event.location}
+              </p>
+            </Link>
           </div>
         ))}
       </div>
@@ -139,28 +146,35 @@ const Upcoming = () => {
         {filteredEvents.map((event) => (
           <div key={event._id}>
             <div>
-            <Link to={`/venues/${event._id}`}>
-              <img
-                className="h-52 w-80 rounded-xl"
-                src={event.picture}
-                alt=""
-              />
-            </Link>
+              <Link to={`/venues/${event._id}`}>
+                <img
+                  className="h-52 w-80 rounded-xl"
+                  src={event.picture}
+                  alt=""
+                />
+              </Link>
             </div>
 
             <div className="flex flex-row justify-between">
-              <p className="text-slate-800 font-semibold text-[16px] ml-1">
-                {event.eventName}
-              </p>
-              <p className="tablet:hidden text-slate-800 font-semibold text-[16px]">
-                {event.amount}
-              </p>
+              <Link to={`/venues/${event._id}`}>
+                <p className="text-slate-800 font-semibold text-[16px] ml-1">
+                  {event.eventName}
+                </p>
+              </Link>
+
+              <Link to={`/venues/${event._id}`}>
+                <p className="tablet:hidden text-slate-800 font-semibold text-[16px]">
+                  {event.amount}
+                </p>
+              </Link>
             </div>
 
-            <p className="flex flex-row items-center text-slate-800 text-[14px]">
-              <FaLocationDot className="text-red-700" />
-              {event.location}
-            </p>
+            <Link to={`/venues/${event._id}`}>
+              <p className="flex flex-row items-center text-slate-800 text-[14px]">
+                <FaLocationDot className="text-red-700" />
+                {event.location}
+              </p>
+            </Link>
           </div>
         ))}
       </div>

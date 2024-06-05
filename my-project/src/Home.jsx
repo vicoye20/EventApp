@@ -89,13 +89,15 @@ const Home = () => {
     <div className="p-7 w-screen h-full mb-11 tablet:bg-slate-300 tablet:w-full tablet:mb-0">
       <div className="fixed top-0 left-0 w-screen z-10 bg-white p-6 tablet:hidden">
         <div className="flex justify-between">
-        <div className="flex flex-row">
-          <FaLocationDot className="text-red-600 mt-1 w-5 h-5" />
-          <h1 className="text-black text-[18px] ml-1">
-            No 6, Trench Avenue, Pluto.
-          </h1>
-        </div>
-        <button className="w-20 h-8 bg-red-700 font-semibold rounded-lg text-white">Sign Out</button>
+          <div className="flex flex-row">
+            <FaLocationDot className="text-red-600 mt-1 w-5 h-5" />
+            <h1 className="text-black text-[18px] ml-1">
+              No 6, Trench Avenue, Pluto.
+            </h1>
+          </div>
+          <button className="w-20 h-8 bg-red-700 font-semibold rounded-lg text-white">
+            Sign Out
+          </button>
         </div>
 
         <div className="relative flex items-center mt-3 w-full">
@@ -168,9 +170,11 @@ const Home = () => {
                   {event.eventName}
                 </p>
               </Link>
-              <p className="text-[15px] text-slate-900 font-bold tablet:hidden">
-                {event.amount}
-              </p>
+              <Link to={`events/${event._id}`}>
+                <p className="text-[15px] text-slate-900 font-bold tablet:hidden">
+                  {event.amount}
+                </p>
+              </Link>
             </div>
 
             <div className="flex flex-row items-center justify-between w-full tablet:hidden">
@@ -267,7 +271,7 @@ const Home = () => {
           <button className="flex items-center gap-1 text-slate-800">
             See all <FaRegPlusSquare />
           </button>
-          </Link>
+        </Link>
       </div>
 
       <Swiper slidesPerView={2.5} spaceBetween={10} className="tablet:hidden">
@@ -325,14 +329,13 @@ const Home = () => {
         ))}
       </div>
 
-        <div className="hidden tablet:flex justify-center mt-5">
-          <Link to="/venues">
+      <div className="hidden tablet:flex justify-center mt-5">
+        <Link to="/venues">
           <button className="flex p-5 items-center gap-1 text-slate-800 tablet:mt-2 tablet:text-[20px] bg-white w-32 h-10 rounded-lg">
             See all <FaRegPlusSquare />
           </button>
         </Link>
-        </div>
-      
+      </div>
 
       <footer className="bg-slate-900 w-screen h-16 p-8 fixed left-0 bottom-0 flex flex-row justify-between items-center z-10 tablet:hidden">
         <Link to="/">
