@@ -108,11 +108,14 @@ const Upcoming = () => {
         {filteredEvents.map((event) => (
           <div key={event._id}>
             <div>
+            <Link to={`/venues/${event._id}`}>
               <img
                 className="h-40 w-full rounded-xl"
                 src={event.picture}
                 alt=""
               />
+            </Link>
+              
             </div>
 
             <div className="flex flex-row justify-between">
@@ -136,11 +139,13 @@ const Upcoming = () => {
         {filteredEvents.map((event) => (
           <div key={event._id}>
             <div>
+            <Link to={`/venues/${event._id}`}>
               <img
                 className="h-52 w-80 rounded-xl"
                 src={event.picture}
                 alt=""
               />
+            </Link>
             </div>
 
             <div className="flex flex-row justify-between">

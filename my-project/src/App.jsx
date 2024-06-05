@@ -20,6 +20,7 @@ import Upcoming from './Upcoming';
 import Coming from './Coming';
 import Details from './Details';
 import Details2 from './Details2';
+import Details3 from './Details3';
 import Entertainment from './Entertainment';
 import DJs   from './entertainment/DJs';
 import MCs from './entertainment/MCs';
@@ -64,6 +65,7 @@ const App = () => {
                   <Route path='/venues' element={<Upcoming/>}/>
                   <Route path='/events' element={<Coming/>}/>
                   <Route path='/events/:id' element={<Details/>}/>
+                  <Route path='/:id' element={<Details3/>}/>
                   <Route path='/venues/:id' element={<Details2/>}/>
                   <Route path='/entertainment' element={<Entertainment/>}/>
 

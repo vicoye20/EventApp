@@ -7,40 +7,43 @@ import { SlCalender } from "react-icons/sl";
 import { FaRegClock } from "react-icons/fa6";
 import { FaLocationDot } from "react-icons/fa6";
 
-const Details = () => {
-  // const params = useParams();
-  const { id } = useParams();
-  const [event, setEvent] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const fetchEvent = async () => {
-      try {
-        const res = await axios.get(`http://localhost:3000/event/${id}`);
-        setEvent(res.data);
-        setLoading(false);
-      } catch (err) {
-        setError(err);
-        setLoading(false);
-      }
-    };
-    fetchEvent();
-  }, [id]);
+const Details3 = () => {
 
-  if (loading)
+    const { id } = useParams()
+    const [event, setEvent] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+  
+    useEffect(() => {
+      const fetchEvent = async () => {
+        try {
+          const res = await axios.get(
+            `http://localhost:3000/eventsThree/${id}`
+          );
+          setEvent(res.data);
+          setLoading(false);
+        } catch (err) {
+          setError(err);
+          setLoading(false);
+        }
+      };
+      fetchEvent();
+    }, [id]);
+  
+    if (loading)
+      return (
+        <p className="text-center text-zinc-700 text-4xl mt-40">Loading...</p>
+      );
+    if (error)
+      return (
+        <p className="text-center text-zinc-700 text-4xl mt-40">
+          Error : {error.message}
+        </p>
+      );
+  
     return (
-      <p className="text-center text-zinc-700 text-4xl mt-40">Loading...</p>
-    );
-  if (error)
-    return (
-      <p className="text-center text-zinc-700 text-4xl mt-40">
-        Error : {error.message}
-      </p>
-    );
-
-  return (
-    <div className="p-7 w-screen h-full mb-11 tablet:bg-slate-300 tablet:h-screen">
+      <div className="p-7 w-screen h-full mb-11 tablet:bg-slate-300 tablet:h-screen">
       <div className="flex flex-row items-center text-slate-700 tablet:text-black">
         <Link to="/">
           <button className="items-center mt-2">
@@ -134,15 +137,12 @@ const Details = () => {
       <button className="m-auto w-full h-12 bg-blue-700 rounded-2xl text-white font-semibold mt-10">
         {event.amount}
       </button>
-        </div>
-
-       
+        </div>    
 
       </div>
-
       
     </div>
   );
 };
 
-export default Details;
+export default Details3

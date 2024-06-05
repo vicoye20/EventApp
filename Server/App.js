@@ -127,6 +127,17 @@ App.get("/eventsThree",async(req,res)=>{
     }
 })
 
+App.get(`/eventsThree/:id`,async(req,res) => {
+    const {id} = req.params
+    try {
+        const eventsThree = await Event3Model.findById(id)
+        res.status(200).json(eventsThree)
+    }
+     catch (error) {
+        res.status(500).json({error:error.message})
+    }
+})
+
 // post music task
 App.post("/music",async(req,res)=>{
     console.log("posted")

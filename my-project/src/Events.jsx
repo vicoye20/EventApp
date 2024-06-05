@@ -35,7 +35,6 @@ const Events = () => {
     event.eventName.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-
   return (
     <div className="p-7 w-screen h-full mb-11 tablet:mb-0 tablet:bg-slate-300">
       <header className="hidden tablet:block bg-slate-900 w-screen h-16 fixed top-0 left-0 z-10">
@@ -94,11 +93,19 @@ const Events = () => {
       <div className="flex flex-col gap-4 mt-[7rem] tablet:grid tablet:grid-cols-3">
         {filteredEvents.map((event) => (
           <div>
-            <img src={event.picture} className="w-full h-32 rounded-xl tablet:w-[88%] tablet:h-56 m-auto tablet:mt-2" />
+            <Link to={`/${event._id}`}>
+            <img
+              src={event.picture}
+              className="w-full h-32 rounded-xl tablet:w-[88%] tablet:h-56 m-auto tablet:mt-2"
+            />
+            </Link>
+            
 
             <div className="flex flex-row justify-between items-center w-full tablet:font-semibold tablet:w-[88%] tablet:m-auto">
               <h1 className="text-black text-[14px]">{event.eventName}</h1>
-              <p className="text-slate-800 text-[14px] tablet:hidden">{event.amount}</p>
+              <p className="text-slate-800 text-[14px] tablet:hidden">
+                {event.amount}
+              </p>
             </div>
 
             <div className="flex flex-row items-center justify-between w-full tablet:font-semibold tablet:w-[88%] tablet:m-auto">
@@ -106,10 +113,14 @@ const Events = () => {
                 <FaLocationDot className="items-center text-red-700" />
                 {event.location}
               </p>
-              <p className="text-[13px] text-slate-900 tablet:hidden">{event.date}</p>
+              <p className="text-[13px] text-slate-900 tablet:hidden">
+                {event.date}
+              </p>
             </div>
 
-            <p className="text-[13px] text-slate-900 tablet:hidden">{event.time}</p>
+            <p className="text-[13px] text-slate-900 tablet:hidden">
+              {event.time}
+            </p>
           </div>
         ))}
       </div>
