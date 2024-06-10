@@ -176,9 +176,11 @@ const Entertainment = () => {
               />
             </Link>
 
+            <Link to={`/entertainment/djs/${dj._id}`}>
             <button className="font-semibold text-[15px] text-slate-800 tablet:text-[18px]">
               {dj.name}
             </button>
+            </Link>
           </div>
         ))}
 
@@ -192,9 +194,12 @@ const Entertainment = () => {
               />
             </Link>
 
-            <button className="font-semibold text-[15px] text-slate-800 tablet:text-[18px]">
+            <Link to={`/entertainment/comedian/${comedy._id}`}>
+              <button className="font-semibold text-[15px] text-slate-800 tablet:text-[18px]">
               {comedy.name}
-            </button>
+            </button> 
+            </Link>
+           
           </div>
         ))}
 
@@ -208,12 +213,15 @@ const Entertainment = () => {
             />
             </Link>
             
-            <button
+            <Link to={`/entertainment/dancers/${dancer._id}`}>
+              <button
               className="font-semibold text-[15px] 
             text-slate-800 tablet:text-[18px]"
             >
               {dancer.name}
             </button>
+            </Link>
+            
           </div>
         ))}
 
@@ -227,9 +235,12 @@ const Entertainment = () => {
             />
             </Link>
             
+
+            <Link to={`/entertainment/musics/${music._id}`}>
             <button className="font-semibold text-[15px] text-slate-800 tablet:text-[18px]">
               {music.name}
             </button>
+            </Link>
           </div>
         ))}
 
@@ -243,9 +254,11 @@ const Entertainment = () => {
               />
             </Link>
 
+            <Link to={`/entertainment/sounds/${sound._id}`}>
             <button className="font-semibold text-[15px] text-slate-800 tablet:text-[18px]">
               {sound.name}
             </button>
+            </Link>
           </div>
         ))}
 
@@ -259,9 +272,11 @@ const Entertainment = () => {
             />
             </Link>
            
+            <Link to={`/entertainment/mcs/${mc._id}`}>
             <button className="font-semibold text-[15px] text-slate-800 tablet:text-[18px]">
               {mc.name}
             </button>
+            </Link>
           </div>
         ))}
       </div>

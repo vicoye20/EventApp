@@ -92,18 +92,20 @@ const MCs = () => {
 
       <div className="mt-36 tablet:mt-44">
         {filtermc.map((mc) => (
-          <div key={mc._id}>
-            <Link to={`/entertainment/mcs/${sound._id}`}>
+          <div key={mc._id} className="w-[50%] tablet:w-[25%]">
+            <Link to={`/entertainment/mcs/${mc._id}`}>
               <img
-              src={mc.picture}
-              alt=""
-              className="h-40 w-[50%] rounded-2xl tablet:w-80 tablet:h-52"
-            />
+                src={mc.picture}
+                alt=""
+                className="h-40 w-[100%] rounded-2xl tablet:w-[100%] tablet:h-52"
+              />
             </Link>
-            
-            <p className="font-semibold text-[15px] text-slate-800 tablet:-[20px]">
-              {mc.name}
-            </p>
+
+            <Link to={`/entertainment/mcs/${mc._id}`}>
+              <button className="font-semibold text-[15px] text-slate-800 tablet:-[20px]">
+                {mc.name}
+              </button>
+            </Link>
           </div>
         ))}
       </div>

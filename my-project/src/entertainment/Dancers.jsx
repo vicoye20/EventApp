@@ -92,18 +92,22 @@ const Dancers = () => {
 
       <div className="mt-36 tablet:mt-44">
         {filterdancer.map((dancer) => (
-          <div key={dancer._id}>
+          <div key={dancer._id} className="w-[50%] tablet:w-[25%]">
             <Link to={`/entertainment/dancers/${dancer._id}`}>
               <img
               src={dancer.picture}
               alt=""
-              className="h-40 w-[50%] rounded-2xl tablet:w-80 tablet:h-52"
+              className="h-40 w-[100%] rounded-2xl tablet:w-[100%] tablet:h-52"
             />
             </Link>
             
-            <p className="font-semibold text-[15px] text-slate-800 tablet:text-[20px]">
+            <Link to={`/entertainment/dancers/${dancer._id}`}>
+              <button className="font-semibold text-[15px] text-slate-800 tablet:text-[20px]">
               {dancer.name}
-            </p>
+            </button>
+            </Link>
+            
+            
           </div>
         ))}
       </div>

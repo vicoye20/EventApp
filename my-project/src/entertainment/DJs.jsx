@@ -92,18 +92,21 @@ const DJs = () => {
 
       <div className="mt-36 tablet:mt-44">
         {filterdjs.map((djs) => (
-          <div key={djs._id}>
+          <div key={djs._id} className="w-[50%] tablet:w-[25%]">
             <Link to={`/entertainment/djs/${djs._id}`}>
               <img
-              src={djs.picture}
-              alt=""
-              className="h-40 w-[50%] rounded-2xl tablet:w-80 tablet:h-52"
-            />
-            </Link>
-            
-            <p className="font-semibold text-[15px] text-slate-800 tablet:text-[20px]">
+                src={djs.picture}
+                alt=""
+                className="h-40 w-[100%] rounded-2xl tablet:w-[100%] tablet:h-52"
+              />
+             </Link>
+
+             <Link to={`/entertainment/djs/${djs._id}`}>
+            <button className="font-semibold text-[15px] text-slate-800 tablet:text-[20px]">
               {djs.name}
-            </p>
+            </button>
+            </Link>
+           
           </div>
         ))}
       </div>

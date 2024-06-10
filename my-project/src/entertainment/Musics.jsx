@@ -92,18 +92,21 @@ const Musics = () => {
 
       <div className="mt-36 tablet:mt-44">
         {filtermusic.map((music) => (
-          <div key={music._id}>
+          <div key={music._id} className="w-[50%] tablet:w-[25%]">
             <Link to={`/entertainment/musics/${music._id}`}>
               <img
               src={music.picture}
               alt=""
-              className="h-40 w-[50%] rounded-2xl tablet:w-80 tablet:h-52"
+              className="h-40 w-[100%] rounded-2xl tablet:w-[100%] tablet:h-52"
             />
             </Link>
             
-            <p className="font-semibold text-[15px] text-slate-800 tablet:text-[20px]">
+            <Link to={`/entertainment/musics/${music._id}`}>
+              <button className="font-semibold text-[15px] text-slate-800 tablet:text-[20px]">
               {music.name}
-            </p>
+            </button>
+            </Link>
+            
           </div>
         ))}
       </div>

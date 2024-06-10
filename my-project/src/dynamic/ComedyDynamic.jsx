@@ -37,36 +37,60 @@ const ComedyDynamic = () => {
         </p>
       );
     return (
-      <div className="p-7 w-screen h-full mb-11 tablet:bg-slate-300 tablet:h-screen">
-        <div className="flex flex-row items-center text-slate-700 tablet:text-black">
-          <Link to="/entertainment">
-            <button className="items-center mt-2">
-              <FaArrowLeftLong />
-            </button>
-          </Link>
-          <h1 className="text-center text-[20px] ml-3 font-semibold">
-            {event.name}
-          </h1>
-        </div>
-  
-        <div key={event._id} className="tablet:hidden">
+      <div className="p-7 w-screen h-full mb-11 tablet:bg-slate-300 tablet:h-screen tablet:mb-0">
+      <div className="flex flex-row items-center text-slate-700 tablet:text-black">
+        <Link to="/entertainment">
+          <button className="items-center mt-2">
+            <FaArrowLeftLong />
+          </button>
+        </Link>
+        <h1 className="text-center text-[20px] ml-3 font-semibold underline decoration-2">
+          {event.name}
+        </h1>
+      </div>
+
+      <div key={event._id} className="tablet:hidden">
+        <img
+          className="w-full h-48 mt-6 rounded-[10px]"
+          src={event.picture}
+          alt=""
+        />
+
+        <h1 className="text-[20px] text-slate-800 mt-3 font-semibold underline decoration-2">
+          Descriptions
+        </h1>
+        <p className="text-slate-800 text-[16px]">{event.description}</p>
+
+        <button className="m-auto w-full h-12 bg-blue-700 rounded-2xl text-white font-semibold mt-7">
+          {event.amount}
+        </button>
+      </div>
+
+      <div
+        key={event._id}
+        className="hidden tablet:flex flex-row justify-evenly mt-8"
+      >
+        <div className="w-[30%] h-60">
           <img
-            className="w-full h-48 mt-6 rounded-[20px]"
+            className="w-full h-60 mt-6 rounded-[8px]"
             src={event.picture}
             alt=""
           />
-  
-          <h1 className="text-[20px] text-slate-800 mt-3 font-semibold">
-            Descriptions
-          </h1>
-          <p className="text-slate-800 text-[16px]">{event.description}</p>
-  
-          <button className="m-auto w-full h-12 bg-blue-700 rounded-2xl text-white font-semibold mt-7">
+          <button className="m-auto w-full h-12 bg-blue-700 rounded-2xl text-white font-semibold mt-11">
             {event.amount}
           </button>
         </div>
-  
+
+        <div className="w-[40%]">
+          <h1 className="text-[26px] text-slate-800 mt-3 font-semibold underline">
+            Descriptions
+          </h1>
+          <p className="text-slate-800 text-[18px]">{event.description}</p>
+
+          
+        </div>
       </div>
+    </div>
     );
   };
 

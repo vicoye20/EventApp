@@ -73,7 +73,7 @@ const Upcoming = () => {
 
       <div className="fixed top-0 left-0 w-screen bg-white p-6 tablet:bg-slate-300">
         <div className="flex flex-row items-center text-slate-700">
-          <Link to="/">
+          <Link to="/service">
             <button className="tablet:hidden">
               <FaArrowLeftLong />
             </button>
