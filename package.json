@@ -9,9 +9,12 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon Server/App.js",
     "frontend": "npm run dev --prefix my-project",
-    "build": "concurrently \"npm run start\" \"npm run frontend\""
+    "both": "concurrently \"npm run start\" \"npm run frontend\"",
+    "dev": "vite",
+  "build": "vite build",
+  "serve": "vite preview"
   },
-
+  
   "keywords": [],
   "author": "",
   "license": "ISC",
