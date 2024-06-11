@@ -23,7 +23,7 @@ import Details from './Details';
 import Details2 from './Details2';
 import Details3 from './Details3';
 import Entertainment from './Entertainment';
-import DJs   from './entertainment/DJs';
+import DJs from './entertainment/DJs';
 import MCs from './entertainment/MCs';
 import Comedian from './entertainment/Comedian';
 import Dancers from './entertainment/Dancers';

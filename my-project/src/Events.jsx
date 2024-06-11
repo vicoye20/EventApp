@@ -36,7 +36,7 @@ const Events = () => {
   );
 
   return (
-    <div className="p-7 w-screen h-full mb-11 tablet:mb-0 tablet:bg-slate-300">
+    <div className="p-7 w-screen min-h-screen mb-11 tablet:mb-0 tablet:bg-slate-300">
       <header className="hidden tablet:block bg-slate-900 w-screen h-16 fixed top-0 left-0 z-10">
         <div className="flex flex-row items-center justify-between">
           <Link to="/">
