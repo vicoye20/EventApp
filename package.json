@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "vite build",
+    "vercel-build": "vite build",
     "start": "nodemon Server/App.js",
     "frontend": "npm run frontend --prefix my-project",
     "both": "concurrently \"npm run start\" \"npm run frontend\""
