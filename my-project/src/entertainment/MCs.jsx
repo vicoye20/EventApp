@@ -1,5 +1,6 @@
 import { React, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { GoSearch } from "react-icons/go";
 import axios from "axios";
@@ -34,10 +35,10 @@ const MCs = () => {
   return (
     <div className="p-7 w-screen h-full tablet:bg-slate-300 tablet:h-screen">
       <div className="fixed top-0 left-0 w-screen bg-white p-6 tablet:bg-slate-300">
-        <div className="flex flex-row items-center text-slate-700">
+      <div className="flex flex-row items-center text-blue-800">
           <Link to="/service">
             <button>
-              <FaArrowLeftLong className="tablet:hidden" />
+              <FaArrowLeftLong className="text-red-700 tablet:hidden" />
             </button>
           </Link>
           <h1 className="text-center text-[20px] ml-32 font-semibold tablet:hidden">
@@ -47,10 +48,10 @@ const MCs = () => {
 
         <Link to="/service">
           <button className="hidden tablet:block">
-            <FaArrowLeftLong className="w-10 h-6" />
+            <FaArrowLeftLong className="w-10 h-6 text-red-700" />
           </button>
         </Link>
-        <h1 className="hidden tablet:block text-center text-[25px] -mt-8">
+        <h1 className="hidden tablet:block font-semibold text-blue-800 text-center text-[25px] -mt-8">
           Entertainment
         </h1>
 
@@ -66,27 +67,27 @@ const MCs = () => {
         </div>
 
         <div className="flex flex-row gap-[18px] mt-3 text-[15.5px] font-semibold text-slate-800 tablet:w-full tablet:text-[20px] tablet:justify-center tablet:gap-12">
-          <Link to="/entertainment">
+          <NavLink to="/entertainment" activeClassName="active">
             <button>All</button>
-          </Link>
-          <Link to="/entertainment/djs">
+          </NavLink>
+          <NavLink to="/entertainment/djs" activeClassName="active">
             <button>DJs</button>
-          </Link>
-          <Link to="/entertainment/mcs">
+          </NavLink>
+          <NavLink to="/entertainment/mcs" activeClassName="active">
             <button>MCs</button>
-          </Link>
-          <Link to="/entertainment/comedian">
+          </NavLink>
+          <NavLink to="/entertainment/comedian" activeClassName="active">
             <button>Comedian</button>
-          </Link>
-          <Link to="/entertainment/dancers">
+          </NavLink>
+          <NavLink to="/entertainment/dancers" activeClassName="active">
             <button>Dancers</button>
-          </Link>
-          <Link to="/entertainment/musics">
+          </NavLink>
+          <NavLink to="/entertainment/musics" activeClassName="active">
             <button>Music</button>
-          </Link>
-          <Link to="/entertainment/sounds">
+          </NavLink>
+          <NavLink to="/entertainment/sounds" activeClassName="active">
             <button>Sound</button>
-          </Link>
+          </NavLink>
         </div>
       </div>
 

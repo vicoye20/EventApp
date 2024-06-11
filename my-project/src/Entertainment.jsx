@@ -1,5 +1,6 @@
 import axios from "axios";
 import { React, useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { GoSearch } from "react-icons/go";
@@ -109,10 +110,10 @@ const Entertainment = () => {
   return (
     <div className="p-7 w-screen min-h-screen tablet:bg-slate-300">
       <div className="fixed top-0 left-0 w-screen bg-white p-6 tablet:bg-slate-300">
-        <div className="flex flex-row items-center text-slate-700">
+        <div className="flex flex-row items-center text-blue-800">
           <Link to="/service">
             <button>
-              <FaArrowLeftLong className="tablet:hidden" />
+              <FaArrowLeftLong className="text-red-600 tablet:hidden" />
             </button>
           </Link>
           <h1 className="text-center text-[20px] ml-32 font-semibold tablet:hidden">
@@ -122,10 +123,10 @@ const Entertainment = () => {
 
         <Link to="/service">
           <button className="hidden tablet:block">
-            <FaArrowLeftLong className="w-10 h-6" />
+            <FaArrowLeftLong className="w-10 h-6 text-red-600" />
           </button>
         </Link>
-        <h1 className="hidden tablet:block text-center text-[25px] -mt-8">
+        <h1 className="hidden tablet:block font-semibold text-center text-[25px] text-blue-800 -mt-8">
           Entertainment
         </h1>
 
@@ -141,31 +142,31 @@ const Entertainment = () => {
         </div>
 
         <div className="flex flex-row gap-[18px] mt-3 text-[15.5px] font-semibold text-slate-800 tablet:w-full tablet:text-[20px] tablet:justify-center tablet:gap-12">
-          <Link to="/entertainment">
+          <NavLink to="/entertainment" activeClassName="active">
             <button>All</button>
-          </Link>
-          <Link to="/entertainment/djs">
+          </NavLink>
+          <NavLink to="/entertainment/djs" activeClassName="active">
             <button>DJs</button>
-          </Link>
-          <Link to="/entertainment/mcs">
+          </NavLink>
+          <NavLink to="/entertainment/mcs" activeClassName="active">
             <button>MCs</button>
-          </Link>
-          <Link to="/entertainment/comedian">
+          </NavLink>
+          <NavLink to="/entertainment/comedian" activeClassName="active">
             <button>Comedian</button>
-          </Link>
-          <Link to="/entertainment/dancers">
+          </NavLink>
+          <NavLink to="/entertainment/dancers" activeClassName="active">
             <button>Dancers</button>
-          </Link>
-          <Link to="/entertainment/musics">
+          </NavLink>
+          <NavLink to="/entertainment/musics" activeClassName="active">
             <button>Music</button>
-          </Link>
-          <Link to="/entertainment/sounds">
+          </NavLink>
+          <NavLink to="/entertainment/sounds" activeClassName="active">
             <button>Sound</button>
-          </Link>
+          </NavLink>
         </div>
       </div>
 
-      <div className="grid grid-cols-2 justify-items-center gap-2 mt-36 w-full mx-auto tablet:grid-cols-3 tablet:mt-44 tablet:justify-items-center tablet:gap-4">
+      <div className="grid grid-cols-2 justify-items-center mt-36 gap-2 w-full mx-auto tablet:grid-cols-3 tablet:justify-items-center tablet:gap-4">
         {filterdj.map((dj) => (
           <div key={dj._id}>
             <Link to={`/entertainment/djs/${dj._id}`}>
@@ -177,9 +178,9 @@ const Entertainment = () => {
             </Link>
 
             <Link to={`/entertainment/djs/${dj._id}`}>
-            <button className="font-semibold text-[15px] text-slate-800 tablet:text-[18px]">
-              {dj.name}
-            </button>
+              <button className="font-semibold text-[15px] text-slate-800 tablet:text-[18px]">
+                {dj.name}
+              </button>
             </Link>
           </div>
         ))}
@@ -196,10 +197,9 @@ const Entertainment = () => {
 
             <Link to={`/entertainment/comedian/${comedy._id}`}>
               <button className="font-semibold text-[15px] text-slate-800 tablet:text-[18px]">
-              {comedy.name}
-            </button> 
+                {comedy.name}
+              </button>
             </Link>
-           
           </div>
         ))}
 
@@ -207,21 +207,20 @@ const Entertainment = () => {
           <div key={dancer._id}>
             <Link to={`/entertainment/dancers/${dancer._id}`}>
               <img
-              src={dancer.picture}
-              alt=""
-              className="h-40 w-44 rounded-md tablet:w-80 tablet:h-52"
-            />
+                src={dancer.picture}
+                alt=""
+                className="h-40 w-44 rounded-md tablet:w-80 tablet:h-52"
+              />
             </Link>
-            
+
             <Link to={`/entertainment/dancers/${dancer._id}`}>
               <button
-              className="font-semibold text-[15px] 
+                className="font-semibold text-[15px] 
             text-slate-800 tablet:text-[18px]"
-            >
-              {dancer.name}
-            </button>
+              >
+                {dancer.name}
+              </button>
             </Link>
-            
           </div>
         ))}
 
@@ -229,17 +228,16 @@ const Entertainment = () => {
           <div key={music._id}>
             <Link to={`/entertainment/musics/${music._id}`}>
               <img
-              src={music.picture}
-              alt=""
-              className="h-40 w-44 rounded-md tablet:w-80 tablet:h-52"
-            />
+                src={music.picture}
+                alt=""
+                className="h-40 w-44 rounded-md tablet:w-80 tablet:h-52"
+              />
             </Link>
-            
 
             <Link to={`/entertainment/musics/${music._id}`}>
-            <button className="font-semibold text-[15px] text-slate-800 tablet:text-[18px]">
-              {music.name}
-            </button>
+              <button className="font-semibold text-[15px] text-slate-800 tablet:text-[18px]">
+                {music.name}
+              </button>
             </Link>
           </div>
         ))}
@@ -255,9 +253,9 @@ const Entertainment = () => {
             </Link>
 
             <Link to={`/entertainment/sounds/${sound._id}`}>
-            <button className="font-semibold text-[15px] text-slate-800 tablet:text-[18px]">
-              {sound.name}
-            </button>
+              <button className="font-semibold text-[15px] text-slate-800 tablet:text-[18px]">
+                {sound.name}
+              </button>
             </Link>
           </div>
         ))}
@@ -265,17 +263,17 @@ const Entertainment = () => {
         {filtermc.map((mc) => (
           <div key={mc._id}>
             <Link to={`/entertainment/mcs/${mc._id}`}>
-             <img
-              src={mc.picture}
-              alt=""
-              className="h-40 w-44 rounded-md tablet:w-80 tablet:h-52"
-            />
+              <img
+                src={mc.picture}
+                alt=""
+                className="h-40 w-44 rounded-md tablet:w-80 tablet:h-52"
+              />
             </Link>
-           
+
             <Link to={`/entertainment/mcs/${mc._id}`}>
-            <button className="font-semibold text-[15px] text-slate-800 tablet:text-[18px]">
-              {mc.name}
-            </button>
+              <button className="font-semibold text-[15px] text-slate-800 tablet:text-[18px]">
+                {mc.name}
+              </button>
             </Link>
           </div>
         ))}

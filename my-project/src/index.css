@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.active {
+    font-weight: bold;
+    color: rgb(213, 1, 1);
+    text-decoration: underline;
+  }
+  

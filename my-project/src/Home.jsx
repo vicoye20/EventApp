@@ -257,7 +257,7 @@ const Home = () => {
 
       <div className="hidden tablet:flex justify-center mt-5">
         <Link to="/events">
-          <button className="flex p-5 items-center gap-1 text-slate-800 tablet:mt-2 tablet:text-[20px] bg-white w-32 h-10 rounded-lg">
+          <button className="flex p-5 items-center gap-1 text-slate-800 tablet:mt-2 tablet:text-[20px] bg-white w-32 h-10 rounded-lg transition duration-600 ease-in-out hover:bg-red-600 hover:text-white">
             See all <FaRegPlusSquare />
           </button>
         </Link>
@@ -331,7 +331,7 @@ const Home = () => {
 
       <div className="hidden tablet:flex justify-center mt-5">
         <Link to="/venues">
-          <button className="flex p-5 items-center gap-1 text-slate-800 tablet:mt-2 tablet:text-[20px] bg-white w-32 h-10 rounded-lg">
+          <button className="flex p-5 items-center gap-1 text-slate-800 tablet:mt-2 tablet:text-[20px] bg-white w-32 h-10 rounded-lg transition duration-600 ease-in-out hover:bg-red-600 hover:text-white">
             See all <FaRegPlusSquare />
           </button>
         </Link>

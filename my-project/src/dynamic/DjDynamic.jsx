@@ -49,7 +49,7 @@ const DjDynamic = () => {
 
       <div key={event._id} className="tablet:hidden">
         <img
-          className="w-full h-48 mt-6 rounded-[10px]"
+          className="w-[75%] h-48 mt-2 rounded-[10px]"
           src={event.picture}
           alt=""
         />

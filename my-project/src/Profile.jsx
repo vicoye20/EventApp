@@ -9,7 +9,7 @@ import { RiLockPasswordFill } from "react-icons/ri";
 
 const Profile = () => {
   return (
-    <div className="p-7 w-screen h-full tablet:bg-slate-300 tablet:max-h-screen">
+    <div className="p-7 w-screen min-h-screen tablet:bg-slate-300">
       <header className="hidden tablet:block bg-slate-900 w-screen h-16 fixed top-0 left-0 z-10">
         <div className="flex flex-row items-center justify-between">
           <Link to="/">
@@ -40,18 +40,17 @@ const Profile = () => {
               </button>
             </Link>
 
-                        <button className="text-white font-semibold">Sign Out</button>
-
+            <button className="text-white font-semibold">Sign Out</button>
           </nav>
         </div>
       </header>
-      <h1 className="text-[20px] text-slate-700 font-semibold tablet:text-center tablet:mt-10 tablet:text-[38px]">
+      <h1 className="text-[20px] text-blue-700 font-semibold tablet:text-center tablet:mt-10 tablet:text-[38px] tablet:text-black">
         Profile
       </h1>
 
       <div className="h-32 w-32 m-auto border-2 border-blue-700 rounded-full mt-8 tablet:mt-2"></div>
 
-      <h1 className="text-[20px] text-blue-700 font-semibold text-center mt-2">
+      <h1 className="text-[20px] text-blue-700 font-semibold text-center mt-2 tablet:text-black">
         Ayantoye David
       </h1>
 
@@ -65,14 +64,14 @@ const Profile = () => {
             <button className="h-8 w-8 bg-blue-300 rounded-md">
               <FaRegUser className="m-auto text-blue-600" />
             </button>
-            <p className="font-semibold text-slate-800 ml-3 tablet:text-[22px] tablet:font-semibold">
+            <p className="font-semibold text-blue-800 ml-3 tablet:text-[22px] tablet:font-semibold">
               My Profile
             </p>
           </div>
-          <Link to='/editprofile'>
-          <button>
-            <PiGreaterThan className="tablet:h-8 w-8" />
-          </button>
+          <Link to="/editprofile">
+            <button>
+              <PiGreaterThan className="tablet:h-8 w-8" />
+            </button>
           </Link>
         </div>
 
@@ -81,7 +80,7 @@ const Profile = () => {
             <button className="h-8 w-8 bg-red-200 rounded-md">
               <RiLockPasswordFill className="m-auto text-red-600" />
             </button>
-            <p className="font-semibold ml-3 text-slate-800 tablet:text-[22px] tablet:font-semibold">
+            <p className="font-semibold ml-3 text-red-600 tablet:text-[22px] tablet:font-semibold">
               Change Password
             </p>
           </div>
@@ -93,11 +92,12 @@ const Profile = () => {
           </Link>
         </div>
 
-        <div className="flex justify-center mt-12">
-          <button className="w-24 h-10 bg-blue-700 font-semibold rounded-lg text-white">Sign Out</button>
+        <div className="flex justify-center mt-12 tablet:mt-0">
+          <button className="w-24 h-10 bg-blue-700 font-semibold rounded-lg text-white">
+            Sign Out
+          </button>
         </div>
       </div>
-
 
       <footer className="bg-slate-900 w-screen h-16 p-8  fixed left-0 bottom-0 z-0 flex flex-row justify-between items-center tablet:hidden">
         <Link to="/">
