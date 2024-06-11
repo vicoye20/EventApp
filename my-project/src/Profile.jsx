@@ -9,7 +9,7 @@ import { RiLockPasswordFill } from "react-icons/ri";
 
 const Profile = () => {
   return (
-    <div className="p-7 w-screen h-full tablet:bg-slate-300 tablet:h-full">
+    <div className="p-7 w-screen h-full tablet:bg-slate-300 tablet:max-h-screen">
       <header className="hidden tablet:block bg-slate-900 w-screen h-16 fixed top-0 left-0 z-10">
         <div className="flex flex-row items-center justify-between">
           <Link to="/">

@@ -268,7 +268,7 @@ const Home = () => {
           Discover Venues
         </h1>
         <Link to="/venues">
-          <button className="flex items-center gap-1 text-slate-800">
+          <button className="flex items-center gap-1 text-slate-800 tablet:hidden">
             See all <FaRegPlusSquare />
           </button>
         </Link>

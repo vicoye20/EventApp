@@ -8,11 +8,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon Server/App.js",
-    "frontend": "npm run dev --prefix my-project",
-    "build": "concurrently \"npm run start\" \"npm run frontend\"",
-    "dev": "vite",
-  "both": "vite build",
-  "serve": "vite preview"
+    "build": "npm run dev --prefix my-project",
+    "both": "concurrently \"npm run start\" \"npm run frontend\""
   },
   
   "keywords": [],
