@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { GoSearch } from "react-icons/go";
 
+
 const Entertainment = () => {
   const [dj, setDj] = useState([]);
   const [comedy, setComedy] = useState([]);
@@ -141,32 +142,42 @@ const Entertainment = () => {
           />
         </div>
 
-        <div className="flex flex-row gap-[18px] mt-3 text-[15.5px] font-semibold text-slate-800 tablet:w-full tablet:text-[20px] tablet:justify-center tablet:gap-12">
-          <NavLink to="/entertainment" activeClassName="active">
-            <button>All</button>
-          </NavLink>
-          <NavLink to="/entertainment/djs" activeClassName="active">
-            <button>DJs</button>
-          </NavLink>
-          <NavLink to="/entertainment/mcs" activeClassName="active">
-            <button>MCs</button>
-          </NavLink>
-          <NavLink to="/entertainment/comedian" activeClassName="active">
-            <button>Comedian</button>
-          </NavLink>
-          <NavLink to="/entertainment/dancers" activeClassName="active">
-            <button>Dancers</button>
-          </NavLink>
-          <NavLink to="/entertainment/musics" activeClassName="active">
-            <button>Music</button>
-          </NavLink>
-          <NavLink to="/entertainment/sounds" activeClassName="active">
-            <button>Sound</button>
-          </NavLink>
-        </div>
+        
+            <div className="flex flex-row mt-3 gap-[6px] text-[15.5px] font-semibold text-white tablet:w-full tablet:text-[20px] tablet:justify-center tablet:gap-12">
+              <NavLink to="/entertainment" activeClassName="active">
+                <button className="bg-blue-800 w-10 h-7 rounded-xl tablet:w-16 tablet:h-8">All</button>
+              </NavLink>
+              <NavLink to="/entertainment/djs" activeClassName="active">
+                <button className="bg-blue-800 w-10 h-7 rounded-xl tablet:w-16 tablet:h-8">DJs</button>
+              </NavLink>
+              <NavLink to="/entertainment/mcs" activeClassName="active">
+                <button className="bg-blue-800 w-10 h-7 rounded-xl tablet:w-16 tablet:h-8">MCs</button>
+              </NavLink>
+              <NavLink to="/entertainment/comedian" activeClassName="active">
+                <button className="bg-blue-800 w-20 h-7 rounded-xl tablet:w-[110px] tablet:h-8">
+                  Comedian
+                </button>
+              </NavLink>
+              <NavLink to="/entertainment/dancers" activeClassName="active">
+                <button className="bg-blue-800 w-16 h-7 rounded-xl tablet:h-8 tablet:w-24">
+                  Dancers
+                </button>
+              </NavLink>
+              <NavLink to="/entertainment/musics" activeClassName="active">
+                <button className="bg-blue-800 w-12 h-7 rounded-xl tablet:h-8 tablet:w-24">
+                  Music
+                </button>
+              </NavLink>
+              <NavLink to="/entertainment/sounds" activeClassName="active">
+                <button className="bg-blue-800 w-12 h-7 rounded-xl tablet:h-8 tablet:w-24">
+                  Sound
+                </button>
+              </NavLink>
+            </div>
+          
       </div>
 
-      <div className="grid grid-cols-2 justify-items-center mt-36 gap-2 w-full mx-auto tablet:grid-cols-3 tablet:justify-items-center tablet:gap-4">
+      <div className="grid grid-cols-2 justify-items-center mt-36 gap-2 w-full mx-auto tablet:grid-cols-3 tablet:justify-items-center tablet:gap-4 tablet:mt-44">
         {filterdj.map((dj) => (
           <div key={dj._id}>
             <Link to={`/entertainment/djs/${dj._id}`}>

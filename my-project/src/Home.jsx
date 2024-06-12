@@ -9,6 +9,7 @@ import { FaRegUser } from "react-icons/fa";
 import { PiUsersThreeFill } from "react-icons/pi";
 import { FaRegPlusSquare } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -112,35 +113,35 @@ const Home = () => {
         </div>
       </div>
 
-      <header className="hidden tablet:block bg-slate-900 w-screen h-16 fixed top-0 left-0 z-10">
+      <header className="hidden tablet:block bg-slate-900 w-screen h-16 fixed top-0 left-0 z-10 text-white">
         <div className="flex flex-row items-center justify-between">
-          <Link to="/">
-            <button className="text-white text-2xl font-semibold p-4 ml-5">
+          <NavLink to="/" activeClassName="actives">
+            <button className="text-2xl font-semibold p-4 ml-5">
               EVENT APP
             </button>
-          </Link>
+          </NavLink>
 
           <nav className="w-[40%] flex flex-row justify-around items-center">
-            <Link to="/events">
-              <button className="text-center text-white text-[12px]">
+            <NavLink to="/events" activeClassName="actives">
+              <button className="text-center text-[12px]">
                 <RiRadioFill className="h-6 w-6 m-auto" />
                 Events
               </button>
-            </Link>
+            </NavLink>
 
-            <Link to="/service">
-              <button className="text-center text-white text-[12px]">
+            <NavLink to="/service" activeClassName="actives">
+              <button className="text-center text-[12px]">
                 <PiUsersThreeFill className="h-6 w-6 m-auto" />
                 Services
               </button>
-            </Link>
+            </NavLink>
 
-            <Link to="/profile">
-              <button className="text-center text-white text-[12px]">
+            <NavLink to="/profile" activeClassName="actives">
+              <button className="text-center text-[12px]">
                 <FaRegUser className="h-6 w-6 m-auto" />
                 Profile
               </button>
-            </Link>
+            </NavLink>
 
             <button className="text-white font-semibold">Sign Out</button>
           </nav>
@@ -337,34 +338,34 @@ const Home = () => {
         </Link>
       </div>
 
-      <footer className="bg-slate-900 w-screen h-16 p-8 fixed left-0 bottom-0 flex flex-row justify-between items-center z-10 tablet:hidden">
-        <Link to="/">
-          <button className="text-center text-white text-[12px]">
+      <footer className="bg-slate-900 text-white w-screen h-16 p-8 fixed left-0 bottom-0 flex flex-row justify-between items-center z-10 tablet:hidden">
+      <NavLink to="/" activeClassName="active">
+          <button className="text-center text-[12px]">
             <IoMdHome className="h-6 w-6 m-auto" />
             Home
           </button>
-        </Link>
+        </NavLink>
 
-        <Link to="/events">
-          <button className="text-center text-white text-[12px]">
+        <NavLink to="/events" activeClassName="active">
+          <button className="text-center text-[12px]">
             <RiRadioFill className="h-6 w-6 m-auto" />
             Events
           </button>
-        </Link>
+        </NavLink>
 
-        <Link to="/service">
-          <button className="text-center text-white text-[12px]">
+        <NavLink to="/service" activeClassName="active">
+          <button className="text-center text-[12px]">
             <PiUsersThreeFill className="h-6 w-6 m-auto" />
             Services
           </button>
-        </Link>
+        </NavLink>
 
-        <Link to="/profile">
-          <button className="text-center text-white text-[12px]">
+        <NavLink to="/profile" activeClassName="active">
+          <button className="text-center text-[12px]">
             <FaRegUser className="h-6 w-6 m-auto" />
             Profile
           </button>
-        </Link>
+        </NavLink>
       </footer>
     </div>
   );
