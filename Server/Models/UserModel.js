@@ -14,25 +14,13 @@ const userSchema = mongoose.Schema ({
         type: String,
         required: [true,"Please enter your password"]
     },
-    phoneNumber : {
-        type: Number,
-        required: [true,"Please enter your phone number"]
-    },
     dateOfBirth : {
         type: String,
         required: true
     },
-    nationality : {
-        type: String,
-        required: [true,"Please enter your nationality"]
-    },
     userName : {
         type: String,
         required: [true,"Please enter your username"]
-    },
-    profilePhoto : {
-        type: String,
-        required: [true,"Please enter your profile photo"]
     },
     },
     { timestamps : true})

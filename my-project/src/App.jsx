@@ -83,7 +83,7 @@ const App = () => {
             path="/entertainment/comedian/:id"
             element={<ComedyDynamic />}
           />
-          <Route path="/entertainment/sounds/:id" element={<SoundDynamic />} />
+          <Route path="/entertainment/sounds/:id" element={<SoundDynamic />} />2
           <Route path="/entertainment/mcs/:id" element={<MCsDynamic />} />
           <Route path="/entertainment/musics/:id" element={<MusicDynamic />} />
           <Route

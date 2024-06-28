@@ -1,486 +1,491 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const dotenv = require("dotenv").config()
-const EventModel = require("./Models/EventModel")
-const Event2Model = require("./Models/Event2Model")
-const Event3Model = require("./Models/Event3Model")
-const ComedianModel = require("./Models/ComedianModel")
-const MusicModel = require("./Models/MusicModel")
-const UserModel = require("./Models/UserModel")
-const McsModel = require("./Models/McsModel")
-const DiscModel = require("./Models/DiscModel")
-const DancerModel = require("./Models/DancerModel")
-const SoundModel = require("./Models/SoundModel")
-const SecurityModel = require("./Models/SecurityModel")
-const CateringModel = require("./Models/CateringModel")
-const PhotoModel = require("./Models/PhotoModel")
-const VideoModel = require("./Models/VideoModel")
-const cors = require("cors")
+const express = require("express");
+const mongoose = require("mongoose");
+const dotenv = require("dotenv").config();
+const bcrypt = require("bcrypt");
+const EventModel = require("./Models/EventModel");
+const Event2Model = require("./Models/Event2Model");
+const Event3Model = require("./Models/Event3Model");
+const ComedianModel = require("./Models/ComedianModel");
+const MusicModel = require("./Models/MusicModel");
+const UserModel = require("./Models/UserModel");
+const McsModel = require("./Models/McsModel");
+const DiscModel = require("./Models/DiscModel");
+const DancerModel = require("./Models/DancerModel");
+const SoundModel = require("./Models/SoundModel");
+const SecurityModel = require("./Models/SecurityModel");
+const CateringModel = require("./Models/CateringModel");
+const PhotoModel = require("./Models/PhotoModel");
+const VideoModel = require("./Models/VideoModel");
+const cors = require("cors");
 
 const App = express();
 
 // middlewares
 
-App.use(express.json())
-App.use(express.urlencoded())
-App.use(cors())
+App.use(express.json());
+App.use(express.urlencoded());
+App.use(cors());
 
-App.get("/",(req,res) => {
-    res.send("<h5>Welcome to larva academy Mr.Ibrahim</h5>")
-})
+App.get("/", (req, res) => {
+  res.send("<h5>Welcome to larva academy Mr.Ibrahim</h5>");
+});
+
+// signUp for the user
+
+App.post("/signup", async (req, res) => {
+  console.log("posted");
+  const { password } = req.body;
+  const hashedPassword = await bcrypt.hash(password, 10);
+  try {
+    const user = await UserModel.create({
+      ...req.body,
+      password: hashedPassword,
+    });
+    res.status(200).json(user);
+    console.log(user);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// to authentication & authorization user
+
+App.post("/login", async (req, res) => {
+  const { email, password } = req.body;
+  try {
+    const user = await UserModel.findOne({ email });
+    if (!user) return res.status(404).json({ message: "User not found" });
+
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) return res.status(400).json({ message: "Invalid password" });
+
+    res.status(200).json({ message: "Logged in successfully" });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 // sending data to our database/mongoDB
 
 // post task
-App.post("/event",async(req,res)=>{
-    console.log("posted")
-    try {
-        const event = await EventModel.create(req.body)
-        res.status(200).json(event)
-    }
-     catch (error) {
-        res.status(500).json({error:error.message})
-    }
-})
+App.post("/event", async (req, res) => {
+  console.log("posted");
+  try {
+    const event = await EventModel.create(req.body);
+    res.status(200).json(event);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 // get events
 
-App.get(`/event/:id`,async(req,res) => {
-    const {id} = req.params
-    try {
-        const event = await EventModel.findById(id)
-        res.status(200).json(event)
-    }
-     catch (error) {
-        res.status(500).json({error:error.message})
-    }
-})
+App.get(`/event/:id`, async (req, res) => {
+  const { id } = req.params;
+  try {
+    const event = await EventModel.findById(id);
+    res.status(200).json(event);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 // get all events
 
-App.get(`/events`,async(req,res) => {
-    try {
-        const event = await EventModel.find()
-        res.status(200).json(event)
-    }
-     catch (error) {
-        res.status(500).json({error:error.message})
-    }
-})
+App.get(`/events`, async (req, res) => {
+  try {
+    const event = await EventModel.find();
+    res.status(200).json(event);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 // post venue event
 
-App.post("/eventTwo",async(req,res)=>{
-    console.log("posted")
-    try {
-        const eventTwo = await Event2Model.create(req.body)
-        res.status(200).json(eventTwo)
-    }
-     catch (error) {
-        res.status(500).json({error:error.message})
-    }
-})
+App.post("/eventTwo", async (req, res) => {
+  console.log("posted");
+  try {
+    const eventTwo = await Event2Model.create(req.body);
+    res.status(200).json(eventTwo);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
-App.get("/eventsTwo",async(req,res)=>{
-    console.log("posted")
-    try {
-        const eventTwo = await Event2Model.find(req.body)
-        res.status(200).json(eventTwo)
-    }
-     catch (error) {
-        res.status(500).json({error:error.message})
-    }
-})
+App.get("/eventsTwo", async (req, res) => {
+  console.log("posted");
+  try {
+    const eventTwo = await Event2Model.find(req.body);
+    res.status(200).json(eventTwo);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
-App.get(`/eventsTwo/:id`,async(req,res) => {
-    const {id} = req.params
-    try {
-        const eventsTwo = await Event2Model.findById(id)
-        res.status(200).json(eventsTwo)
-    }
-     catch (error) {
-        res.status(500).json({error:error.message})
-    }
-})
+App.get(`/eventsTwo/:id`, async (req, res) => {
+  const { id } = req.params;
+  try {
+    const eventsTwo = await Event2Model.findById(id);
+    res.status(200).json(eventsTwo);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 // event routes
 
-App.post("/eventThree",async(req,res)=>{
-    console.log("posted")
-    try {
-        const eventThree = await Event3Model.create(req.body)
-        res.status(200).json(eventThree)
-    }
-     catch (error) {
-        res.status(500).json({error:error.message})
-    }
-})
+App.post("/eventThree", async (req, res) => {
+  console.log("posted");
+  try {
+    const eventThree = await Event3Model.create(req.body);
+    res.status(200).json(eventThree);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
-App.get("/eventsThree",async(req,res)=>{
-    console.log("posted")
-    try {
-        const eventThree = await Event3Model.find(req.body)
-        res.status(200).json(eventThree)
-    }
-     catch (error) {
-        res.status(500).json({error:error.message})
-    }
-})
+App.get("/eventsThree", async (req, res) => {
+  console.log("posted");
+  try {
+    const eventThree = await Event3Model.find(req.body);
+    res.status(200).json(eventThree);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
-App.get(`/eventsThree/:id`,async(req,res) => {
-    const {id} = req.params
-    try {
-        const eventsThree = await Event3Model.findById(id)
-        res.status(200).json(eventsThree)
-    }
-     catch (error) {
-        res.status(500).json({error:error.message})
-    }
-})
+App.get(`/eventsThree/:id`, async (req, res) => {
+  const { id } = req.params;
+  try {
+    const eventsThree = await Event3Model.findById(id);
+    res.status(200).json(eventsThree);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 // post music task
-App.post("/music",async(req,res)=>{
-    console.log("posted")
-    try {
-        const music = await MusicModel.create(req.body)
-        res.status(200).json(music)
-    }
-     catch (error) {
-        res.status(500).json({error:error.message})
-    }
-})
+App.post("/music", async (req, res) => {
+  console.log("posted");
+  try {
+    const music = await MusicModel.create(req.body);
+    res.status(200).json(music);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 // get data from music
 
-App.get("/musics",async(req,res)=>{
-    console.log("posted")
-    try {
-        const music = await MusicModel.find(req.body)
-        res.status(200).json(music)
-    }
-     catch (error) {
-        res.status(500).json({error:error.message})
-    }
-})
+App.get("/musics", async (req, res) => {
+  console.log("posted");
+  try {
+    const music = await MusicModel.find(req.body);
+    res.status(200).json(music);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 // to get data from music
 
-App.get(`/musics/:id`,async(req,res) => {
-    const {id} = req.params
-    try {
-        const music = await MusicModel.findById(id)
-        res.status(200).json(music)
-    }
-     catch (error) {
-        res.status(500).json({error:error.message})
-    }
-})
+App.get(`/musics/:id`, async (req, res) => {
+  const { id } = req.params;
+  try {
+    const music = await MusicModel.findById(id);
+    res.status(200).json(music);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 // post djs task
 
-App.post("/disc",async(req,res)=>{
-    console.log("posted")
-    try {
-        const disc = await DiscModel.create(req.body)
-        res.status(200).json(disc)
-    }
-     catch (error) {
-        res.status(500).json({error:error.message})
-    }
-})
+App.post("/disc", async (req, res) => {
+  console.log("posted");
+  try {
+    const disc = await DiscModel.create(req.body);
+    res.status(200).json(disc);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 // to get data from djs
 
-App.get("/discs",async(req,res)=>{
-    console.log("posted")
-    try {
-        const discs = await DiscModel.find(req.body)
-        res.status(200).json(discs)
-    }
-     catch (error) {
-        res.status(500).json({error:error.message})
-    }
-})
+App.get("/discs", async (req, res) => {
+  console.log("posted");
+  try {
+    const discs = await DiscModel.find(req.body);
+    res.status(200).json(discs);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 // to get each data from djs
 
-App.get(`/discs/:id`,async(req,res) => {
-    const {id} = req.params
-    try {
-        const discs = await DiscModel.findById(id)
-        res.status(200).json(discs)
-    }
-     catch (error) {
-        res.status(500).json({error:error.message})
-    }
-})
+App.get(`/discs/:id`, async (req, res) => {
+  const { id } = req.params;
+  try {
+    const discs = await DiscModel.findById(id);
+    res.status(200).json(discs);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 // post dancers task
 
-App.post("/dancer", async (req,res) => {
-    console.log("posted")
-    try {
-        const dancer = await DancerModel.create(req.body)
-        res.status(200).json(dancer)
-    }
-     catch (error) {
-        res.status(500).json({error:error.message})
-    }
-})
+App.post("/dancer", async (req, res) => {
+  console.log("posted");
+  try {
+    const dancer = await DancerModel.create(req.body);
+    res.status(200).json(dancer);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 // get data from dancers
 
-App.get("/dancers",async (req,res) => {
-    console.log("posted")
-    try{
-        const dancers = await DancerModel.find(req.body)
-        res.status(200).json(dancers)
-    }
-     catch (error) {
-        res.status(500).json({error:error.message})
-    }
-})
+App.get("/dancers", async (req, res) => {
+  console.log("posted");
+  try {
+    const dancers = await DancerModel.find(req.body);
+    res.status(200).json(dancers);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 // get each data from dancers
 
-App.get(`/dancers/:id`,async(req,res) => {
-    const {id} = req.params
-    try {
-        const dancers = await DancerModel.findById(id)
-        res.status(200).json(dancers)
-    }
-     catch (error) {
-        res.status(500).json({error:error.message})
-    }
-})
+App.get(`/dancers/:id`, async (req, res) => {
+  const { id } = req.params;
+  try {
+    const dancers = await DancerModel.findById(id);
+    res.status(200).json(dancers);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 // post comedian tasks
 
-App.post("/comedy", async (req,res) => {
-    console.log("posted")
-    try {
-        const comedy = await ComedianModel.create(req.body)
-        res.status(200).json(comedy)
-    }
-     catch (error) {
-        res.status(500).json({error:error.message})
-    }
-})
+App.post("/comedy", async (req, res) => {
+  console.log("posted");
+  try {
+    const comedy = await ComedianModel.create(req.body);
+    res.status(200).json(comedy);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 // get data from comedian
 
-App.get("/comedians",async(req,res)=>{
-    console.log("posted")
-    try {
-        const comedians = await ComedianModel.find(req.body)
-        res.status(200).json(comedians)
-    }
-     catch (error) {
-        res.status(500).json({error:error.message})
-    }
-})
+App.get("/comedians", async (req, res) => {
+  console.log("posted");
+  try {
+    const comedians = await ComedianModel.find(req.body);
+    res.status(200).json(comedians);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 // get each data from comedian
 
-App.get(`/comedians/:id`,async(req,res) => {
-    const {id} = req.params
-    try {
-        const comedians = await ComedianModel.findById(id)
-        res.status(200).json(comedians)
-    }
-     catch (error) {
-        res.status(500).json({error:error.message})
-    }
-})
-
+App.get(`/comedians/:id`, async (req, res) => {
+  const { id } = req.params;
+  try {
+    const comedians = await ComedianModel.findById(id);
+    res.status(200).json(comedians);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 // sound post task
 
-App.post("/sound", async (req,res) => {
-    console.log("posted")
-    try {
-        const sound = await SoundModel.create(req.body)
-        res.status(200).json(sound)
-    }
-     catch (error) {
-        res.status(500).json({error:error.message})
-    }
-})
+App.post("/sound", async (req, res) => {
+  console.log("posted");
+  try {
+    const sound = await SoundModel.create(req.body);
+    res.status(200).json(sound);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 // get data from sound
 
-App.get("/sounds",async(req,res)=>{
-    console.log("posted")
-    try {
-        const sounds = await SoundModel.find(req.body)
-        res.status(200).json(sounds)
-    }
-     catch (error) {
-        res.status(500).json({error:error.message})
-    }
-})
+App.get("/sounds", async (req, res) => {
+  console.log("posted");
+  try {
+    const sounds = await SoundModel.find(req.body);
+    res.status(200).json(sounds);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 // get each data from sound
 
-App.get(`/sounds/:id`,async(req,res) => {
-    const {id} = req.params
-    try {
-        const sounds = await SoundModel.findById(id)
-        res.status(200).json(sounds)
-    }
-     catch (error) {
-        res.status(500).json({error:error.message})
-    }
-})
+App.get(`/sounds/:id`, async (req, res) => {
+  const { id } = req.params;
+  try {
+    const sounds = await SoundModel.findById(id);
+    res.status(200).json(sounds);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 // post mcs task
 
-App.post("/mc", async (req,res) => {
-    console.log("posted")
-    try {
-        const mc = await McsModel.create(req.body)
-        res.status(200).json(mc)
-    }
-     catch (error) {
-        res.status(500).json({error:error.message})
-    }
-})
+App.post("/mc", async (req, res) => {
+  console.log("posted");
+  try {
+    const mc = await McsModel.create(req.body);
+    res.status(200).json(mc);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 // get data from mcs
 
-App.get("/mcs",async(req,res)=>{
-    console.log("posted")
-    try {
-        const mcs = await McsModel.find(req.body)
-        res.status(200).json(mcs)
-    }
-     catch (error) {
-        res.status(500).json({error:error.message})
-    }
-})
+App.get("/mcs", async (req, res) => {
+  console.log("posted");
+  try {
+    const mcs = await McsModel.find(req.body);
+    res.status(200).json(mcs);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 // get each data from mcs
 
-App.get(`/mcs/:id`,async(req,res) => {
-    const {id} = req.params
-    try {
-        const mcs = await McsModel.findById(id)
-        res.status(200).json(mcs)
-    }
-     catch (error) {
-        res.status(500).json({error:error.message})
-    }
-})
+App.get(`/mcs/:id`, async (req, res) => {
+  const { id } = req.params;
+  try {
+    const mcs = await McsModel.findById(id);
+    res.status(200).json(mcs);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 // post security task
 
-App.post("/security", async (req,res) => {
-    console.log("posted")
-    try {
-        const security = await SecurityModel.create(req.body)
-        res.status(200).json(security)
-    }
-     catch (error) {
-        res.status(500).json({error:error.message})
-    }
-})
+App.post("/security", async (req, res) => {
+  console.log("posted");
+  try {
+    const security = await SecurityModel.create(req.body);
+    res.status(200).json(security);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 // get data from security
 
-App.get("/securities",async(req,res)=>{
-    console.log("posted")
-    try {
-        const securities = await SecurityModel.find(req.body)
-        res.status(200).json(securities)
-    }
-     catch (error) {
-        res.status(500).json({error:error.message})
-    }
-})
+App.get("/securities", async (req, res) => {
+  console.log("posted");
+  try {
+    const securities = await SecurityModel.find(req.body);
+    res.status(200).json(securities);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
-// post catering task   
+// post catering task
 
-App.post("/catering", async (req,res) => {
-    console.log("posted")
-    try {
-        const catering = await CateringModel.create(req.body)
-        res.status(200).json(catering)
-    }
-     catch (error) {
-        res.status(500).json({error:error.message})
-    }
-})
+App.post("/catering", async (req, res) => {
+  console.log("posted");
+  try {
+    const catering = await CateringModel.create(req.body);
+    res.status(200).json(catering);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 // get data from catering
 
-App.get("/caterings",async(req,res)=>{
-    console.log("posted")
-    try {
-        const caterings = await CateringModel.find(req.body)
-        res.status(200).json(caterings)
-    }
-     catch (error) {
-        res.status(500).json({error:error.message})
-    }
-})
+App.get("/caterings", async (req, res) => {
+  console.log("posted");
+  try {
+    const caterings = await CateringModel.find(req.body);
+    res.status(200).json(caterings);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 // post photographer task
 
-App.post("/photographer", async (req,res) => {
-    console.log("posted")
-    try {
-        const photographer = await PhotoModel.create(req.body)
-        res.status(200).json(photographer)
-    }
-     catch (error) {
-        res.status(500).json({error:error.message})
-    }
-})
+App.post("/photographer", async (req, res) => {
+  console.log("posted");
+  try {
+    const photographer = await PhotoModel.create(req.body);
+    res.status(200).json(photographer);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 // get data from photographer
 
-App.get("/photographers",async(req,res)=>{
-    console.log("posted")
-    try {
-        const photographers = await PhotoModel.find(req.body)
-        res.status(200).json(photographers)
-    }
-     catch (error) {
-        res.status(500).json({error:error.message})
-    }
-})  
+App.get("/photographers", async (req, res) => {
+  console.log("posted");
+  try {
+    const photographers = await PhotoModel.find(req.body);
+    res.status(200).json(photographers);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 // post videographer task
 
-App.post("/videographer", async (req,res) => {
-    console.log("posted")
-    try {
-        const videographer = await VideoModel.create(req.body)
-        res.status(200).json(videographer)
-    }
-     catch (error) {
-        res.status(500).json({error:error.message})
-    }
-})
+App.post("/videographer", async (req, res) => {
+  console.log("posted");
+  try {
+    const videographer = await VideoModel.create(req.body);
+    res.status(200).json(videographer);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 // get data from videographer
 
-App.get("/videographers",async(req,res)=>{
-    console.log("posted")
-    try {
-        const videographers = await VideoModel.find(req.body)
-        res.status(200).json(videographers)
-    }
-     catch (error) {
-        res.status(500).json({error:error.message})
-    }
-})
+App.get("/videographers", async (req, res) => {
+  console.log("posted");
+  try {
+    const videographers = await VideoModel.find(req.body);
+    res.status(200).json(videographers);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 // connect to mongoDB
 
-mongoose.connect(process.env.MONGO_URI).then(()=>{
-    console.log("connected successfully")
-        App.listen(3000, () => {console.log("app listening on port 3000")})
-    }).catch((error) => {console.log(error
-        )})
-        
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => {
+    console.log("connected successfully");
+    App.listen(3000, () => {
+      console.log("app listening on port 3000");
+    });
+  })
+  .catch((error) => {
+    console.log(error);
+  });

@@ -41,22 +41,22 @@ const MusicDynamic = () => {
       <div className="flex flex-row items-center text-slate-700 tablet:text-black">
         <Link to="/entertainment">
           <button className="items-center mt-2">
-            <FaArrowLeftLong />
+            <FaArrowLeftLong className="text-red-600 w-6 h-6"/>
           </button>
         </Link>
-        <h1 className="text-center text-[20px] ml-3 font-semibold underline decoration-2">
+        <h1 className="text-center text-[20px] ml-3 font-semibold underline decoration-2 text-blue-800">
           {event.name}
         </h1>
       </div>
 
       <div key={event._id} className="tablet:hidden">
         <img
-          className="w-full h-48 mt-6 rounded-[10px]"
+          className="w-[75%] h-48 mt-6 rounded-[10px]"
           src={event.picture}
           alt=""
         />
 
-        <h1 className="text-[20px] text-slate-800 mt-3 font-semibold underline decoration-2">
+        <h1 className="text-[20px] text-blue-800 mt-3 font-semibold underline decoration-2">
           Descriptions
         </h1>
         <p className="text-slate-800 text-[16px]">{event.description}</p>
@@ -79,7 +79,7 @@ const MusicDynamic = () => {
         </div>
 
         <div className="w-[40%]">
-          <h1 className="text-[26px] text-slate-800 mt-3 font-semibold underline">
+          <h1 className="text-[26px] text-blue-800 mt-3 font-semibold underline">
             Descriptions
           </h1>
           <p className="text-slate-800 text-[20px]">{event.description}</p>

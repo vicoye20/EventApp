@@ -3,19 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-
-
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon Server/App.js",
     "frontend": "npm run dev --prefix my-project",
     "both": "concurrently \"npm run start\" \"npm run frontend\""
   },
-  
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "concurrently": "^8.2.2",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
