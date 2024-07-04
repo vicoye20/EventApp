@@ -37,7 +37,7 @@ const SignIn = () => {
   }
 
   return (
-    <div className='p-4 bg-lime-200 h-screen w-[100%]'>
+    <div className='p-4 bg-lime-200 h-screen w-[100%] tablet:bg-slate-100'>
         <div className="mb-10 tablet:m-auto tablet:w-[50%] tablet:mb-10">
         <h1 className="text-blue-700 font-semibold text-2xl">Welcome</h1>
         <p className="text-md font-semibold">Hello there, sign in to continue!</p>
@@ -74,7 +74,13 @@ const SignIn = () => {
             </div>
           </div>
 
-            <button className='text-sm text-blue-600 -mt-10 ml-72 font-semibold'>Forgetten Password?</button>
+            <button className='text-sm text-blue-600 -mt-10 ml-72 font-semibold tablet:hidden'>Forgetten Password?</button>
+
+            <div className="hidden tablet:block -mt-8">
+          <button className="w-full h-10 bg-green-700 rounded-md text-white tablet:w-full tablet:font-bold">
+            Forget Password
+          </button>
+        </div>
 
           <div className="flex flex-col gap-3">
             <button className="bg-blue-800 rounded-lg w-full p-2 text-white font-bold hover:bg-green-900">
@@ -82,7 +88,7 @@ const SignIn = () => {
             </button>
 
             <div className="relative flex items-center">
-              <FcGoogle className="absolute left-24"/>
+            <FcGoogle className="absolute left-24 tablet:left-10 laptop:left-24 desktop:left-32"/>
                 <button className="bg-white rounded-lg w-full p-2 text-green-900 font-bold hover:bg-slate-200">
                   Continue with Google
               </button>
@@ -93,9 +99,11 @@ const SignIn = () => {
         </form>
       </div>
 
-            <p className="text-sm text-black font-bold mt-44 text-center">Don't have an account...? 
+            <p className="text-md text-black font-semibold mt-44 text-center">Don't have an account...? 
               <Link to="/signUp">
-                <span className="text-blue-700 font-bold"> Sign Up</span>
+                <button className='ml-1'>
+                  <span className="text-blue-700 font-semibold hover:text-green-950"> Sign Up</span>
+                  </button>
               </Link>
             </p>
             

@@ -46,7 +46,7 @@ const SignUp = () => {
     }
 
   return (
-    <div className="p-4 bg-lime-200 h-full w-screen">
+    <div className="p-4 bg-lime-200 h-full w-screen tablet:bg-slate-100">
       <div className="mb-10 tablet:m-auto tablet:w-[50%] tablet:mb-10">
         <h1 className="text-blue-700 font-semibold text-2xl">Sign Up</h1>
         <p className="text-md">Hello there, sign up to continue!</p>
@@ -125,7 +125,7 @@ const SignUp = () => {
             </button>
 
             <div className="relative flex items-center">
-              <FcGoogle className="absolute left-24" />
+              <FcGoogle className="absolute left-24 tablet:left-10 laptop:left-24 desktop:left-32"/>
               <button className="bg-white rounded-lg w-full p-2 text-green-900 font-bold hover:bg-slate-200">
                 Continue with Google
               </button>
@@ -134,10 +134,12 @@ const SignUp = () => {
         </form>
       </div>
 
-      <p className="text-sm text-black font-bold mt-28 mb-10 text-center">
-        Already have an account?
+      <p className="text-md text-black font-semibold mt-28 mb-10 text-center">
+        Already have an account...?
         <Link to="/signIn">
-          <span className="text-blue-700 font-bold"> Sign In</span>
+          <button className="ml-1 ">
+            <span className="text-blue-700 font-semibold hover:text-green-950"> Sign In</span>
+            </button>
         </Link>
       </p>
     </div>
