@@ -28,6 +28,9 @@ App.use(cors(
   }
 ))
 
+mongoose.connect('mongodb+srv://managervic:Victor2020@eventapp.izbwwwc.mongodb.net/eventApp?retryWrites=true&w=majority&appName=eventApp')
+
+
 // middlewares
 
 App.use(express.json());
