@@ -20,6 +20,14 @@ const cors = require("cors");
 
 const App = express();
 
+App.use(cors(
+  {
+    origin: "https://event-app-gold.vercel.app/",
+    methods: ["GET", "POST"],
+    credentials: true,
+  }
+))
+
 // middlewares
 
 App.use(express.json());
