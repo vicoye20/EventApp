@@ -20,17 +20,6 @@ const cors = require("cors");
 
 const App = express();
 
-App.use(cors(
-  {
-    origin: "https://event-app-gold.vercel.app/",
-    methods: ["GET", "POST"],
-    credentials: true,
-  }
-))
-
-mongoose.connect('mongodb+srv://managervic:Victor2020@eventapp.izbwwwc.mongodb.net/eventApp?retryWrites=true&w=majority&appName=eventApp')
-
-
 // middlewares
 
 App.use(express.json());
